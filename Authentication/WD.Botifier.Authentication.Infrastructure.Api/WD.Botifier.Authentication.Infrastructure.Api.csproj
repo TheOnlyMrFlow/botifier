@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\WD.Botifier.Authentication..Infrastructure.Persistence.MongoDb\WD.Botifier.Authentication..Infrastructure.Persistence.MongoDb.csproj" />
+      <ProjectReference Include="..\WD.Botifier.Authentication.Application\WD.Botifier.Authentication.Application.csproj" />
+      <ProjectReference Include="..\WD.Botifier.Authentication.Infrastructure.Jwt\WD.Botifier.Authentication.Infrastructure.Jwt.csproj" />
+      <ProjectReference Include="..\WD.Botifier.Authentication.Infrastructure.PasswordEncrypter\WD.Botifier.Authentication.Infrastructure.PasswordEncrypter.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MongoDB.Bson" Version="2.14.0-beta1" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    </ItemGroup>
+
+</Project>

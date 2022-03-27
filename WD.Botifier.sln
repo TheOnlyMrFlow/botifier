@@ -1,0 +1,88 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.BotRegistry.Domain", "BotRegistry\WD.Botifier.BotRegistry.Domain\WD.Botifier.BotRegistry.Domain.csproj", "{7805A256-2B94-4BE1-84DF-03FEECA83DFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.BotRegistry.Application", "BotRegistry\WD.Botifier.BotRegistry.Application\WD.Botifier.BotRegistry.Application.csproj", "{5DF39791-8059-4D26-B24A-9BD0EB037C92}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BotRegistry", "BotRegistry", "{F5FB91E6-7AC7-4937-9385-CF8010AA04BF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Authentication", "Authentication", "{74ED2A0D-6E0C-45FE-9F75-A26DA4EF417E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BotRunner", "BotRunner", "{DE02F10B-7122-4761-B728-D59AE948FBC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.SharedKernel", "WD.Botifier.SharedKernel\WD.Botifier.SharedKernel.csproj", "{95F08558-7F1C-4C65-B076-06BD5245D91A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.SeedWork", "WD.Botifier.SeedWork\WD.Botifier.SeedWork.csproj", "{1787C890-970A-4EB0-A4F8-9F83349E723C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notifications", "Notifications", "{EBD43C35-C012-4A19-BEA4-3D87146FCB55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.Authentication.Domain", "Authentication\WD.Botifier.Authentication.Domain\WD.Botifier.Authentication.Domain.csproj", "{2A3113F5-0DC4-45D3-B690-8641DF5FA0B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.Authentication.Application", "Authentication\WD.Botifier.Authentication.Application\WD.Botifier.Authentication.Application.csproj", "{8EBA2DB5-4B04-4184-9DC7-DE6D27D7A9A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.Authentication.Infrastructure.Jwt", "Authentication\WD.Botifier.Authentication.Infrastructure.Jwt\WD.Botifier.Authentication.Infrastructure.Jwt.csproj", "{23D0310C-B1CD-4935-9F6A-CAA60938473B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.Authentication.Infrastructure.Api", "Authentication\WD.Botifier.Authentication.Infrastructure.Api\WD.Botifier.Authentication.Infrastructure.Api.csproj", "{48CC625B-5C9E-4BF0-BC68-AAD5BE1887EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.Authentication..Infrastructure.Persistence.MongoDb", "Authentication\WD.Botifier.Authentication..Infrastructure.Persistence.MongoDb\WD.Botifier.Authentication..Infrastructure.Persistence.MongoDb.csproj", "{CEB0723C-86FA-4DD4-BDA3-638398E761DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.Authentication.Infrastructure.PasswordEncrypter", "Authentication\WD.Botifier.Authentication.Infrastructure.PasswordEncrypter\WD.Botifier.Authentication.Infrastructure.PasswordEncrypter.csproj", "{AD16ABB5-7310-41C1-B997-95E726552D77}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7805A256-2B94-4BE1-84DF-03FEECA83DFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7805A256-2B94-4BE1-84DF-03FEECA83DFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7805A256-2B94-4BE1-84DF-03FEECA83DFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7805A256-2B94-4BE1-84DF-03FEECA83DFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DF39791-8059-4D26-B24A-9BD0EB037C92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DF39791-8059-4D26-B24A-9BD0EB037C92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DF39791-8059-4D26-B24A-9BD0EB037C92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DF39791-8059-4D26-B24A-9BD0EB037C92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95F08558-7F1C-4C65-B076-06BD5245D91A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95F08558-7F1C-4C65-B076-06BD5245D91A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95F08558-7F1C-4C65-B076-06BD5245D91A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95F08558-7F1C-4C65-B076-06BD5245D91A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1787C890-970A-4EB0-A4F8-9F83349E723C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1787C890-970A-4EB0-A4F8-9F83349E723C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1787C890-970A-4EB0-A4F8-9F83349E723C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1787C890-970A-4EB0-A4F8-9F83349E723C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A3113F5-0DC4-45D3-B690-8641DF5FA0B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A3113F5-0DC4-45D3-B690-8641DF5FA0B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A3113F5-0DC4-45D3-B690-8641DF5FA0B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A3113F5-0DC4-45D3-B690-8641DF5FA0B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EBA2DB5-4B04-4184-9DC7-DE6D27D7A9A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EBA2DB5-4B04-4184-9DC7-DE6D27D7A9A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EBA2DB5-4B04-4184-9DC7-DE6D27D7A9A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EBA2DB5-4B04-4184-9DC7-DE6D27D7A9A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23D0310C-B1CD-4935-9F6A-CAA60938473B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23D0310C-B1CD-4935-9F6A-CAA60938473B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23D0310C-B1CD-4935-9F6A-CAA60938473B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23D0310C-B1CD-4935-9F6A-CAA60938473B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48CC625B-5C9E-4BF0-BC68-AAD5BE1887EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48CC625B-5C9E-4BF0-BC68-AAD5BE1887EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48CC625B-5C9E-4BF0-BC68-AAD5BE1887EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48CC625B-5C9E-4BF0-BC68-AAD5BE1887EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEB0723C-86FA-4DD4-BDA3-638398E761DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEB0723C-86FA-4DD4-BDA3-638398E761DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEB0723C-86FA-4DD4-BDA3-638398E761DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEB0723C-86FA-4DD4-BDA3-638398E761DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD16ABB5-7310-41C1-B997-95E726552D77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD16ABB5-7310-41C1-B997-95E726552D77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD16ABB5-7310-41C1-B997-95E726552D77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD16ABB5-7310-41C1-B997-95E726552D77}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5DF39791-8059-4D26-B24A-9BD0EB037C92} = {F5FB91E6-7AC7-4937-9385-CF8010AA04BF}
+		{7805A256-2B94-4BE1-84DF-03FEECA83DFE} = {F5FB91E6-7AC7-4937-9385-CF8010AA04BF}
+		{2A3113F5-0DC4-45D3-B690-8641DF5FA0B3} = {74ED2A0D-6E0C-45FE-9F75-A26DA4EF417E}
+		{8EBA2DB5-4B04-4184-9DC7-DE6D27D7A9A2} = {74ED2A0D-6E0C-45FE-9F75-A26DA4EF417E}
+		{23D0310C-B1CD-4935-9F6A-CAA60938473B} = {74ED2A0D-6E0C-45FE-9F75-A26DA4EF417E}
+		{48CC625B-5C9E-4BF0-BC68-AAD5BE1887EC} = {74ED2A0D-6E0C-45FE-9F75-A26DA4EF417E}
+		{CEB0723C-86FA-4DD4-BDA3-638398E761DF} = {74ED2A0D-6E0C-45FE-9F75-A26DA4EF417E}
+		{AD16ABB5-7310-41C1-B997-95E726552D77} = {74ED2A0D-6E0C-45FE-9F75-A26DA4EF417E}
+	EndGlobalSection
+EndGlobal
