@@ -26,7 +26,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.Authentication.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.Authentication.Infrastructure.Persistence.MongoDb", "Authentication\WD.Botifier.Authentication.Infrastructure.Persistence.MongoDb\WD.Botifier.Authentication.Infrastructure.Persistence.MongoDb.csproj", "{CEB0723C-86FA-4DD4-BDA3-638398E761DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.Authentication.Infrastructure.PasswordEncrypter", "Authentication\WD.Botifier.Authentication.Infrastructure.PasswordEncrypter\WD.Botifier.Authentication.Infrastructure.PasswordEncrypter.csproj", "{AD16ABB5-7310-41C1-B997-95E726552D77}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.Authentication.Infrastructure.PasswordEncryptor", "Authentication\WD.Botifier.Authentication.Infrastructure.PasswordEncryptor\WD.Botifier.Authentication.Infrastructure.PasswordEncryptor.csproj", "{AD16ABB5-7310-41C1-B997-95E726552D77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
