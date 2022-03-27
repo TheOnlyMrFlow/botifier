@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using WD.Botifier.Authentication.Application.Users.ValidateAccessToken;
 using WD.Botifier.Authentication.Domain.Users;
 

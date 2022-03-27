@@ -1,8 +1,10 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
+﻿using System;
+using MongoDB.Bson.Serialization.Attributes;
 using WD.Botifier.Authentication.Domain.Users;
 using WD.Botifier.Authentication.Domain.Users.EncryptedPasswords;
+using WD.Botifier.SharedKernel;
 
-namespace WD.Botifier.Authentication.Persistence.MongoDb.Users;
+namespace WD.Botifier.Authentication.Infrastructure.Persistence.MongoDb.Users;
 
 [BsonIgnoreExtraElements]
 public class UserDocument

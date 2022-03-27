@@ -1,10 +1,10 @@
-﻿using System.Security.Cryptography;
+﻿using System;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using WD.Botifier.Authentication.Application.Ports;
 using WD.Botifier.Authentication.Domain.Users.ClearPasswords;
 using WD.Botifier.Authentication.Domain.Users.EncryptedPasswords;
 
-namespace WD.Botifier.Authentication.Infrastructure.Passwordhasher;
+namespace WD.Botifier.Authentication.Infrastructure.PasswordEncryptor;
 
 public class PasswordEncryptor : IPasswordEncryptor
 {

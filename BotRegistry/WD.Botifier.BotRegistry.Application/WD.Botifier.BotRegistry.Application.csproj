@@ -2,9 +2,20 @@
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <RootNamespace>WD.Botifier.Application</RootNamespace>
     </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="OneOf" Version="3.0.216" />
+        <PackageReference Include="OneOf.SourceGenerator" Version="3.0.216" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\WD.Botifier.BotRegistry.Domain\WD.Botifier.BotRegistry.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Ports" />
+    </ItemGroup>
 
 </Project>

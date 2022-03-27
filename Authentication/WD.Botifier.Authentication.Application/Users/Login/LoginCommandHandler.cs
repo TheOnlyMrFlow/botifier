@@ -1,4 +1,5 @@
-﻿using OneOf.Types;
+﻿using System.Threading.Tasks;
+using OneOf.Types;
 using WD.Botifier.Authentication.Application.Ports;
 using WD.Botifier.Authentication.Domain.Users;
 

@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace WD.Botifier.SeedWork;
 
 public interface IDomainEvent

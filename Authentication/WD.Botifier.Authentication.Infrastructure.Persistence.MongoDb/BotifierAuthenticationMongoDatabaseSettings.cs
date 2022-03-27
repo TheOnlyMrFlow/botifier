@@ -1,4 +1,4 @@
-﻿namespace WD.Botifier.Authentication.Persistence.MongoDb;
+﻿namespace WD.Botifier.Authentication.Infrastructure.Persistence.MongoDb;
 
 public class BotifierAuthenticationMongoDatabaseSettings
 {

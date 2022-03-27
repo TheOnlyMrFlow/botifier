@@ -1,8 +1,8 @@
-﻿using MongoDB.Driver;
+﻿using System.Threading.Tasks;
+using MongoDB.Driver;
 using WD.Botifier.Authentication.Domain.Users;
-using WD.Botifier.SeedWork;
 
-namespace WD.Botifier.Authentication.Persistence.MongoDb.Users;
+namespace WD.Botifier.Authentication.Infrastructure.Persistence.MongoDb.Users;
 
 public class UserRepository : IUserRepository
 {

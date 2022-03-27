@@ -1,5 +1,7 @@
-﻿using WD.Botifier.Authentication.Domain.Users.EncryptedPasswords;
+﻿using System;
+using WD.Botifier.Authentication.Domain.Users.EncryptedPasswords;
 using WD.Botifier.SeedWork;
+using WD.Botifier.SharedKernel;
 
 namespace WD.Botifier.Authentication.Domain.Users;
 

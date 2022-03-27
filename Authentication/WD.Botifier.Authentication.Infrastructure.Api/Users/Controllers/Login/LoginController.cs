@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using WD.Botifier.Authentication.Application.Users.Login;
 using WD.Botifier.Authentication.Application.Users.Signup;
 using WD.Botifier.Authentication.Domain.Users;

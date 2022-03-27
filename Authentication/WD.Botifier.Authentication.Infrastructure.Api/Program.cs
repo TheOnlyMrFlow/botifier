@@ -1,3 +1,7 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using WD.Botifier.Authentication.Application.Ports;
 using WD.Botifier.Authentication.Application.Users.Login;
@@ -6,9 +10,10 @@ using WD.Botifier.Authentication.Application.Users.ValidateAccessToken;
 using WD.Botifier.Authentication.Domain.Users;
 using WD.Botifier.Authentication.Infrastructure;
 using WD.Botifier.Authentication.Infrastructure.Api.Middlewares;
-using WD.Botifier.Authentication.Infrastructure.Passwordhasher;
-using WD.Botifier.Authentication.Persistence.MongoDb;
-using WD.Botifier.Authentication.Persistence.MongoDb.Users;
+using WD.Botifier.Authentication.Infrastructure.Jwt;
+using WD.Botifier.Authentication.Infrastructure.PasswordEncryptor;
+using WD.Botifier.Authentication.Infrastructure.Persistence.MongoDb;
+using WD.Botifier.Authentication.Infrastructure.Persistence.MongoDb.Users;
 
 var builder = WebApplication.CreateBuilder(args);
 

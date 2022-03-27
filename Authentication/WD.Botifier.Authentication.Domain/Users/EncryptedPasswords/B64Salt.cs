@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.Contracts;
+﻿using System;
+using System.Diagnostics.Contracts;
 using System.Security.Cryptography;
 
 namespace WD.Botifier.Authentication.Domain.Users.EncryptedPasswords;

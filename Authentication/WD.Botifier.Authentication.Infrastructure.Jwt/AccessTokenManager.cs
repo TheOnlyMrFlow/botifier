@@ -1,10 +1,11 @@
-﻿using System.IdentityModel.Tokens.Jwt;
+﻿using System;
+using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using WD.Botifier.Authentication.Application.Ports;
 using WD.Botifier.Authentication.Domain.Users;
 
-namespace WD.Botifier.Authentication.Infrastructure;
+namespace WD.Botifier.Authentication.Infrastructure.Jwt;
 
 public class AccessTokenManager : IAccessTokenManager
 {

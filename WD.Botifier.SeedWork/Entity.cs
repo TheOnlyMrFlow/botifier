@@ -1,4 +1,6 @@
-﻿namespace WD.Botifier.SeedWork;
+﻿using System.Collections.Generic;
+
+namespace WD.Botifier.SeedWork;
 
 public abstract class Entity
 {

@@ -1,4 +1,6 @@
-﻿namespace WD.Botifier.SeedWork;
+﻿using System;
+
+namespace WD.Botifier.SeedWork;
 
 public class BusinessRuleValidationException : Exception
 {

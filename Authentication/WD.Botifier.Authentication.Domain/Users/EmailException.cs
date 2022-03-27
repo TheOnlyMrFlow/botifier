@@ -1,4 +1,6 @@
-﻿namespace WD.Botifier.Authentication.Domain.Users
+﻿using System;
+
+namespace WD.Botifier.Authentication.Domain.Users
 {
     public class EmailException : Exception
     {
