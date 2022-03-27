@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\WD.Botifier.Authentication..Infrastructure.Persistence.MongoDb\WD.Botifier.Authentication..Infrastructure.Persistence.MongoDb.csproj" />
+      <ProjectReference Include="..\WD.Botifier.Authentication.Infrastructure.Persistence.MongoDb\WD.Botifier.Authentication.Infrastructure.Persistence.MongoDb.csproj" />
       <ProjectReference Include="..\WD.Botifier.Authentication.Application\WD.Botifier.Authentication.Application.csproj" />
       <ProjectReference Include="..\WD.Botifier.Authentication.Infrastructure.Jwt\WD.Botifier.Authentication.Infrastructure.Jwt.csproj" />
       <ProjectReference Include="..\WD.Botifier.Authentication.Infrastructure.PasswordEncrypter\WD.Botifier.Authentication.Infrastructure.PasswordEncrypter.csproj" />

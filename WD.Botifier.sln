@@ -24,7 +24,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.Authentication.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.Authentication.Infrastructure.Api", "Authentication\WD.Botifier.Authentication.Infrastructure.Api\WD.Botifier.Authentication.Infrastructure.Api.csproj", "{48CC625B-5C9E-4BF0-BC68-AAD5BE1887EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.Authentication..Infrastructure.Persistence.MongoDb", "Authentication\WD.Botifier.Authentication..Infrastructure.Persistence.MongoDb\WD.Botifier.Authentication..Infrastructure.Persistence.MongoDb.csproj", "{CEB0723C-86FA-4DD4-BDA3-638398E761DF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.Authentication.Infrastructure.Persistence.MongoDb", "Authentication\WD.Botifier.Authentication.Infrastructure.Persistence.MongoDb\WD.Botifier.Authentication.Infrastructure.Persistence.MongoDb.csproj", "{CEB0723C-86FA-4DD4-BDA3-638398E761DF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.Authentication.Infrastructure.PasswordEncrypter", "Authentication\WD.Botifier.Authentication.Infrastructure.PasswordEncrypter\WD.Botifier.Authentication.Infrastructure.PasswordEncrypter.csproj", "{AD16ABB5-7310-41C1-B997-95E726552D77}"
 EndProject
