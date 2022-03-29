@@ -19,7 +19,7 @@ public class CreateBotController : ControllerBase
         _commandHandler = commandHandler;
     }
 
-    //[Authorize]
+    [Authorize]
     [HttpPost("bots", Name = "Create bot")]
     public async Task<IActionResult?> CreateBotAsync([FromBody] CreateBotHttpRequestBody requestBody)
     {

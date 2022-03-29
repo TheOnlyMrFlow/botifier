@@ -22,8 +22,9 @@ public class ValidateAccessTokenController : ControllerBase
     {
         var query = new ValidateAccessTokenQuery(new AccessToken(requestBody.AccessToken));
 
-        var isValid = _queryHandler.Handle(query);
-
-        return isValid ? Ok() : Unauthorized();
+        return _queryHandler.Handle(query).Match<IActionResult>(
+            decodedToken => Ok(decodedToken),
+            invalidToken => Unauthorized()
+            );
     }
 }

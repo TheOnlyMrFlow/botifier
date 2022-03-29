@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Authentication;using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -9,6 +9,7 @@ using WD.Botifier.Authentication.Application.Users.Signup;
 using WD.Botifier.Authentication.Application.Users.ValidateAccessToken;
 using WD.Botifier.Authentication.Domain.Users;
 using WD.Botifier.Authentication.Infrastructure;
+using WD.Botifier.Authentication.Infrastructure.Api;
 using WD.Botifier.Authentication.Infrastructure.Api.Middlewares;
 using WD.Botifier.Authentication.Infrastructure.Jwt;
 using WD.Botifier.Authentication.Infrastructure.PasswordEncryptor;

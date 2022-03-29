@@ -1,4 +1,5 @@
-﻿using WD.Botifier.Authentication.Application.Ports;
+﻿using OneOf.Types;
+using WD.Botifier.Authentication.Application.Ports;
 
 namespace WD.Botifier.Authentication.Application.Users.ValidateAccessToken;
 
@@ -11,8 +12,10 @@ public class ValidateAccessTokenQueryHandler
         _accessTokenManager = accessTokenManager;
     }
     
-    public bool Handle(ValidateAccessTokenQuery query)
+    public ValidateAccessTokenQueryResult Handle(ValidateAccessTokenQuery query)
     {
-        return _accessTokenManager.IsValid(query.AccessToken);
+        return _accessTokenManager.IsValid(query.AccessToken, out var decodedToken)
+            ? decodedToken
+            : new ValidateAccessTokenQueryInvalidTokenResult();
     }
 }

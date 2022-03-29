@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using WD.Botifier.Authentication.Application.Ports;
@@ -23,7 +26,7 @@ public class AccessTokenManager : IAccessTokenManager
         var token = new JwtSecurityToken(
             _config.Issuer,
             _config.Audience,
-            //claims.Concat(new [] {new Claim("userId", user.Id.ToString())}),
+            claims: new [] { new Claim("userId", user.Id.Value.ToString()) },
             expires: DateTime.UtcNow.AddMinutes(_config.ExpiryInMinutes),
             signingCredentials: new SigningCredentials(_symmertricSecurityKey, SecurityAlgorithms.HmacSha256)
         );
@@ -31,7 +34,7 @@ public class AccessTokenManager : IAccessTokenManager
         return new AccessToken(new JwtSecurityTokenHandler().WriteToken(token));
     }
 
-    public bool IsValid(AccessToken accessToken)
+    public bool IsValid(AccessToken accessToken, out Dictionary<string, string> decodedToken)
     {
         var tokenHandler = new JwtSecurityTokenHandler();
 
@@ -45,10 +48,12 @@ public class AccessTokenManager : IAccessTokenManager
             ValidateIssuer = true
         };
 
+        decodedToken = new Dictionary<string, string>();
+        
         SecurityToken validatedToken;
         try
         {
-            tokenHandler.ValidateToken(accessToken.Value, validationParameters, out validatedToken);
+            decodedToken = tokenHandler.ValidateToken(accessToken.Value, validationParameters, out validatedToken).Claims.ToDictionary(claim => claim.Type, claim => claim.Value);
         }
         catch (Exception)
         {

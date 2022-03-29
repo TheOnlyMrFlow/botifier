@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using WD.Botifier.BotRegistry.Application.Bots;
 using WD.Botifier.BotRegistry.Domain.Bots;
+using WD.Botifier.BotRegistry.Infrastructure.Api;
 using WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb;
 using WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.Bots;
 
@@ -21,6 +23,13 @@ services
     .AddLogging(logging => logging.AddConsole())
     //.AddUseCases()
     .AddControllers();
+
+services
+    .AddAuthentication(x =>
+    {
+        x.DefaultScheme = "Botifier.Auth";
+    })
+    .AddScheme<AuthenticationSchemeOptions, BotifierAuthHandler>("Botifier.Auth", null);
 
 services
     .Configure<BotifierBotRegistryMongoDatabaseSettings>(configuration.GetSection("MongoDatabaseSettings"))
@@ -56,5 +65,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.UseHttpsRedirection();
 
 app.Run();

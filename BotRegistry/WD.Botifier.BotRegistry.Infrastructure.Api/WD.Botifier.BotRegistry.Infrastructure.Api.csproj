@@ -11,4 +11,9 @@
       <ProjectReference Include="..\WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb\WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+      <PackageReference Include="RestSharp" Version="107.3.1-alpha.0.18" />
+    </ItemGroup>
+
 </Project>
