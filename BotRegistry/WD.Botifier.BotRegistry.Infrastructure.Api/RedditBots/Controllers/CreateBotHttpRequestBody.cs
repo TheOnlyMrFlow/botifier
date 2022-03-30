@@ -1,4 +1,4 @@
-﻿namespace WD.Botifier.BotRegistry.Infrastructure.Api.Bots.Controllers;
+﻿namespace WD.Botifier.BotRegistry.Infrastructure.Api.RedditBots.Controllers;
 
 public class CreateBotHttpRequestBody
 {

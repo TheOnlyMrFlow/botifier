@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using WD.Botifier.BotRegistry.Application.Bots;
-using WD.Botifier.BotRegistry.Domain.Bots;
+using WD.Botifier.BotRegistry.Application.RedditBots;
+using WD.Botifier.BotRegistry.Domain.RedditBots;
 using WD.Botifier.BotRegistry.Infrastructure.Api;
 using WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb;
-using WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.Bots;
+using WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,10 +35,10 @@ services
     .Configure<BotifierBotRegistryMongoDatabaseSettings>(configuration.GetSection("MongoDatabaseSettings"))
     .AddSingleton(sp => sp.GetRequiredService<IOptions<BotifierBotRegistryMongoDatabaseSettings>>().Value);
 
-services.AddTransient<IBotRepository, BotRepository>();
-services.AddTransient<IBotRepository, BotRepository>();
+services.AddTransient<IRedditBotRepository, RedditBotRepository>();
+services.AddTransient<IRedditBotRepository, RedditBotRepository>();
 
-services.AddTransient<CreateBotCommandHandler>();
+services.AddTransient<CreateRedditBotCommandHandler>();
 
 var app = builder.Build();
 
