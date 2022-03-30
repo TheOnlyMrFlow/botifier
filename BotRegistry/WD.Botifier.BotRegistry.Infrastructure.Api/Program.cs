@@ -4,6 +4,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using WD.Botifier.BotRegistry.Application.RedditBots;
+using WD.Botifier.BotRegistry.Application.RedditBots.CreateRedditBot;
+using WD.Botifier.BotRegistry.Application.RedditBots.EditRedditBotCredentials;
+using WD.Botifier.BotRegistry.Application.RedditBots.ListRedditBotsOfOwner;
 using WD.Botifier.BotRegistry.Domain.RedditBots;
 using WD.Botifier.BotRegistry.Infrastructure.Api;
 using WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb;
@@ -39,6 +42,8 @@ services.AddTransient<IRedditBotRepository, RedditBotRepository>();
 services.AddTransient<IRedditBotRepository, RedditBotRepository>();
 
 services.AddTransient<CreateRedditBotCommandHandler>();
+services.AddTransient<EditRedditBotCredentialsCommandHandler>();
+services.AddTransient<ListRedditBotsOfOwnerQueryHandler>();
 
 var app = builder.Build();
 

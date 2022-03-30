@@ -1,0 +1,26 @@
+﻿using System;
+
+namespace WD.Botifier.SeedWork;
+
+public abstract class IdValueBase : IIdValue, IEquatable<IdValueBase>
+{
+    public Guid Value { get; }
+
+    protected IdValueBase(Guid value) 
+        => Value = value;
+
+    public override bool Equals(object? obj) 
+        => obj is IdValueBase other && Equals(other);
+
+    public override int GetHashCode() 
+        => Value.GetHashCode();
+
+    public bool Equals(IdValueBase? other) 
+        => Value == other?.Value;
+
+    public static bool operator ==(IdValueBase? obj1, IdValueBase? obj2) 
+        => obj1?.Equals(obj2) ?? Equals(obj2, null);
+
+    public static bool operator !=(IdValueBase x, IdValueBase y)
+        => !(x == y);
+}

@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WD.Botifier.BotRegistry.Application.RedditBots;
+using WD.Botifier.BotRegistry.Application.RedditBots.CreateRedditBot;
 using WD.Botifier.BotRegistry.Domain.RedditBots;
+using WD.Botifier.BotRegistry.Domain.SharedKernel;
 
-namespace WD.Botifier.BotRegistry.Infrastructure.Api.RedditBots.Controllers;
+namespace WD.Botifier.BotRegistry.Infrastructure.Api.RedditBots.Controllers.CreateRedditBot;
 
 [ApiController]
 public class CreateRedditBotController : ControllerBase
@@ -21,10 +23,10 @@ public class CreateRedditBotController : ControllerBase
 
     [Authorize]
     [HttpPost("redditBots", Name = "Create reddit bot")]
-    public async Task<IActionResult?> CreateBotAsync([FromBody] CreateBotHttpRequestBody requestBody)
+    public async Task<IActionResult?> CreateBotAsync([FromBody] CreateRedditBotHttpRequestBody requestBody)
     {
         var userId = this.GetAuthenticatedUserId();
-        var command = new CreateRedditBotCommand(userId, new RedditBotName(requestBody.Name));
+        var command = new CreateRedditBotCommand(userId, new BotName(requestBody.Name));
 
         var result = await _commandHandler.HandleAsync(command);
 

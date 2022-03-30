@@ -1,7 +1,7 @@
 ﻿using OneOf;
 using WD.Botifier.BotRegistry.Domain.RedditBots;
 
-namespace WD.Botifier.BotRegistry.Application.RedditBots;
+namespace WD.Botifier.BotRegistry.Application.RedditBots.CreateRedditBot;
 
 [GenerateOneOf]
 public partial class CreateRedditBotCommandResult : OneOfBase<CreateRedditBotCommandSuccessResult, CreateRedditBotCommandDuplicateNameForSameOwnerErrorResult> { }

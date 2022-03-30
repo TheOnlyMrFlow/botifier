@@ -3,7 +3,7 @@ using WD.Botifier.SeedWork;
 
 namespace WD.Botifier.SharedKernel;
 
-public class UserId : IdValue
+public class UserId : IdValueBase
 {
     public UserId(Guid value) : base(value) { }
 

@@ -8,8 +8,6 @@ using WD.Botifier.Authentication.Application.Users.Login;
 using WD.Botifier.Authentication.Application.Users.Signup;
 using WD.Botifier.Authentication.Application.Users.ValidateAccessToken;
 using WD.Botifier.Authentication.Domain.Users;
-using WD.Botifier.Authentication.Infrastructure;
-using WD.Botifier.Authentication.Infrastructure.Api;
 using WD.Botifier.Authentication.Infrastructure.Api.Middlewares;
 using WD.Botifier.Authentication.Infrastructure.Jwt;
 using WD.Botifier.Authentication.Infrastructure.PasswordEncryptor;
