@@ -2,7 +2,7 @@
 using WD.Botifier.SeedWork;
 using WD.Botifier.SharedKernel;
 
-namespace WD.Botifier.BotRegistry.Domain.SharedKernel;
+namespace WD.Botifier.BotRegistry.Domain.SharedKernel.Bots;
 
 public interface IBot<out TIdentifier> where TIdentifier : IIdValue 
 {

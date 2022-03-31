@@ -6,6 +6,7 @@ using WD.Botifier.BotRegistry.Application.RedditBots;
 using WD.Botifier.BotRegistry.Application.RedditBots.CreateRedditBot;
 using WD.Botifier.BotRegistry.Domain.RedditBots;
 using WD.Botifier.BotRegistry.Domain.SharedKernel;
+using WD.Botifier.BotRegistry.Domain.SharedKernel.Bots;
 
 namespace WD.Botifier.BotRegistry.Infrastructure.Api.RedditBots.Controllers.CreateRedditBot;
 
