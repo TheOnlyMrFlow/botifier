@@ -1,0 +1,16 @@
+using OneOf;
+
+namespace WD.Botifier.BotRegistry.Application.RedditBots.AddBotUserNameMentionInCommentTrigger;
+
+[GenerateOneOf]
+public partial class AddBotUserNameMentionInCommentTriggerCommandResult : OneOfBase<AddBotUserNameMentionInCommentTriggerCommandSuccessResult, AddBotUserNameMentionInCommentTriggerCommandBotNotFounResult>
+{
+}
+
+public class AddBotUserNameMentionInCommentTriggerCommandSuccessResult
+{
+}
+
+public class AddBotUserNameMentionInCommentTriggerCommandBotNotFounResult
+{
+}

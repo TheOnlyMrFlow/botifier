@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using MongoDB.Bson.Serialization.Attributes;
 using WD.Botifier.BotRegistry.Domain.RedditBots;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Credentials;
+using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers;
+using WD.Botifier.BotRegistry.Domain.RedditBots.Webhooks;
 using WD.Botifier.BotRegistry.Domain.SharedKernel.Bots;
 using WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Triggers;
-using WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Webhooks;
 using WD.Botifier.SharedKernel;
 
 namespace WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots;
@@ -20,12 +22,14 @@ public class RedditBotDocument
         OwnerId = redditBot.OwnerId.Value;
         Name = redditBot.Name.Value;
         Credentials = new RedditBotCredentialsDocument(redditBot.Credentials);
-        BotUserNameMentionInCommentWebhooks = redditBot.BotUserNameMentionInCommentWebhooks.Select(wh => new BotUserNameMentionInCommentWebhookDocument(wh)).ToList();
-        NewPostInSubredditWebhooks = redditBot.NewPostInSubredditWebhooks.Select(wh => new NewPostInSubredditWebhookDocument(wh)).ToList();
+        Triggers =
+            redditBot.Triggers.NewPostInSubredditTrigger.Select(t => new NewPostInSubredditTriggerDocument(t))
+                .Concat<RedditBotTriggerDocumentBase>(redditBot.Triggers.BotUserNameMentionInCommentTrigger.Select(t => new BotUserNameMentionInCommentTriggerDocument(t)))
+                .ToList();
         CreatedAt = redditBot.CreatedAt;
     }
 
-    public int SchemaVersion { get; set; } = 2;
+    public int SchemaVersion { get; set; } = 3;
     
     [BsonId]
     public Guid Id { get; set; }
@@ -36,9 +40,7 @@ public class RedditBotDocument
     
     public RedditBotCredentialsDocument? Credentials { get; set; }
     
-    public ICollection<BotUserNameMentionInCommentWebhookDocument> BotUserNameMentionInCommentWebhooks { get; set; }
-    
-    public ICollection<NewPostInSubredditWebhookDocument> NewPostInSubredditWebhooks { get; set; }
+    public ICollection<RedditBotTriggerDocumentBase> Triggers { get; set; }
 
     public DateTime CreatedAt { get; set; }
 
@@ -48,7 +50,15 @@ public class RedditBotDocument
             new UserId(OwnerId), 
             new BotName(Name), 
             Credentials?.ToRedditBotCredentials() ?? RedditBotCredentials.EmptyCredentials(),
-            BotUserNameMentionInCommentWebhooks.Select(wh => wh.ToRedditWebhook()).ToList(),
-            NewPostInSubredditWebhooks.Select(wh => wh.ToRedditWebhook()).ToList(),
+            new RedditBotTriggerCollection(
+                Triggers
+                    .Where(t => t.Type == BotUserNameMentionInCommentTriggerDocument.TriggerType)
+                    .Cast<BotUserNameMentionInCommentTriggerDocument>()
+                    .Select(t => t.ToTrigger()),
+                Triggers
+                    .Where(t => t.Type == NewPostInSubredditTriggerDocument.TriggerType)
+                    .Cast<NewPostInSubredditTriggerDocument>()
+                    .Select(t => t.ToTrigger())
+                ),
             CreatedAt);
 }

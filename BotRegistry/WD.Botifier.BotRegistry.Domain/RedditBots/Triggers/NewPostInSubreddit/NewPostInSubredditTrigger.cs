@@ -1,14 +1,15 @@
-﻿using System.Collections.Generic;
-using WD.Botifier.SharedKernel.Reddit;
+﻿using System;
+using System.Collections.Generic;
+using WD.Botifier.BotRegistry.Domain.RedditBots.Webhooks;
 
 namespace WD.Botifier.BotRegistry.Domain.RedditBots.Triggers.NewPostInSubreddit;
 
-public class NewPostInSubredditTrigger : IRedditTrigger
+public class NewPostInSubredditTrigger : RedditTriggerBase<NewPostInSubredditTriggerSettings>
 {
-    public NewPostInSubredditTrigger(IEnumerable<SubredditName> subredditNames)
+    public static NewPostInSubredditTrigger NewNewPostInSubredditTrigger(NewPostInSubredditTriggerSettings settings)
+        => new(RedditTriggerId.NewRedditTriggerId(), settings, new List<Webhook>());
+    
+    public NewPostInSubredditTrigger(RedditTriggerId id, NewPostInSubredditTriggerSettings settings, ICollection<Webhook> webhooks) : base(id, settings, webhooks)
     {
-        SubredditNames = new List<SubredditName>(subredditNames);
     }
-
-    public ICollection<SubredditName> SubredditNames { get; }
 }
