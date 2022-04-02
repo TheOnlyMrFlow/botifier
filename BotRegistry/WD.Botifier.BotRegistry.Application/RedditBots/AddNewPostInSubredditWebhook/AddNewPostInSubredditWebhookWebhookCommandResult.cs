@@ -1,0 +1,16 @@
+using OneOf;
+
+namespace WD.Botifier.BotRegistry.Application.RedditBots.AddBotUserNameMentionInCommentWebhook;
+
+[GenerateOneOf]
+public partial class AddBotUserNameMentionInCommentWebhookCommandResult : OneOfBase<AddBotUserNameMentionInCommentWebhookCommandSuccessResult, AddBotUserNameMentionInCommentWebhookCommandBotNotFounResult>
+{
+}
+
+public class AddBotUserNameMentionInCommentWebhookCommandSuccessResult
+{
+}
+
+public class AddBotUserNameMentionInCommentWebhookCommandBotNotFounResult
+{
+}

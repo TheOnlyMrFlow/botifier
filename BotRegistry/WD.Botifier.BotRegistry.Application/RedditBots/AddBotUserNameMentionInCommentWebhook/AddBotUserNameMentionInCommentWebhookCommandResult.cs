@@ -1,0 +1,5 @@
+namespace WD.Botifier.BotRegistry.Application.RedditBots.AddBotUserNameMentionInCommentWebhook;
+
+public class AddBotUserNameMentionInCommentWebhookCommandResult
+{
+}
