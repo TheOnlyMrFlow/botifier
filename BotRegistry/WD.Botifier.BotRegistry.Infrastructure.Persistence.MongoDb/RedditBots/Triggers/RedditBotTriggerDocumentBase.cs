@@ -8,7 +8,8 @@ public abstract class RedditBotTriggerDocumentBase
 {
     public Guid Id { get; set; }
     
-    public string Type { get; set; }
+    [BsonIgnore]
+    public abstract string Type { get; }
 }
 
 public abstract class RedditBotTriggerDocumentBase<TSettings> : RedditBotTriggerDocumentBase where TSettings : IRedditBotTriggerSettingsDocument

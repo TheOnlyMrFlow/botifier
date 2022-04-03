@@ -13,12 +13,13 @@ public class BotUserNameMentionInCommentTriggerDocument : RedditBotTriggerDocume
     
     public BotUserNameMentionInCommentTriggerDocument(BotUserNameMentionInCommentTrigger trigger)
     {
-        Type = TriggerType;
         Settings = new BotUserNameMentionInCommentTriggerSettingsDocument(trigger.Settings);
     }
     
     public BotUserNameMentionInCommentTrigger ToTrigger()
         => new (new RedditTriggerId(Id), Settings.ToSettings(), new List<Webhook>());
+
+    public override string Type => TriggerType;
 }
 
 public class BotUserNameMentionInCommentTriggerSettingsDocument : IRedditBotTriggerSettingsDocument

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WD.Botifier.BotRegistry.Application.RedditBots.AddBotUserNameMentionInCommentTrigger;
@@ -19,6 +20,7 @@ public class AddBotUserNameMentionInCommentTriggerController : ControllerBase
         _addBotUserNameMentionInCommentTriggerCommandHandler = addBotUserNameMentionInCommentTriggerCommandHandler;
     }
 
+    [Authorize]
     [HttpPost("redditBots/{botId:guid}/triggers/botUsernameMentionInComment", Name = "Add a new BotUsernameMentionInComment trigger to a reddit bot")]
     public async Task<IActionResult?> AddTriggerAsync(Guid botId, [FromBody] AddBotUserNameMentionInCommentTriggerHttpRequestBody requestBody)
     {

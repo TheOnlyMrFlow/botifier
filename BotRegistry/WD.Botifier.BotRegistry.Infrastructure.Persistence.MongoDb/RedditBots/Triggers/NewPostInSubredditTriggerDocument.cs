@@ -15,12 +15,13 @@ public class NewPostInSubredditTriggerDocument : RedditBotTriggerDocumentBase<Ne
     
     public NewPostInSubredditTriggerDocument(NewPostInSubredditTrigger trigger)
     {
-        Type = TriggerType;
         Settings = new NewPostInSubredditTriggerSettingsDocument(trigger.Settings);
     }
 
     public NewPostInSubredditTrigger ToTrigger() 
         => new (new RedditTriggerId(Id), Settings.ToSettings(), new List<Webhook>());
+
+    public override string Type => TriggerType;
 }
 
 public class NewPostInSubredditTriggerSettingsDocument : IRedditBotTriggerSettingsDocument

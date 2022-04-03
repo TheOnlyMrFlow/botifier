@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using MongoDB.Bson.Serialization.Attributes;
 using WD.Botifier.BotRegistry.Domain.RedditBots;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Credentials;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers;
-using WD.Botifier.BotRegistry.Domain.RedditBots.Webhooks;
+using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers.BotUserNameMentionInComment;
+using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers.NewPostInSubreddit;
 using WD.Botifier.BotRegistry.Domain.SharedKernel.Bots;
 using WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Triggers;
 using WD.Botifier.SharedKernel;
@@ -40,7 +40,7 @@ public class RedditBotDocument
     
     public RedditBotCredentialsDocument? Credentials { get; set; }
     
-    public ICollection<RedditBotTriggerDocumentBase> Triggers { get; set; }
+    public ICollection<RedditBotTriggerDocumentBase>? Triggers { get; set; }
 
     public DateTime CreatedAt { get; set; }
 
@@ -52,13 +52,13 @@ public class RedditBotDocument
             Credentials?.ToRedditBotCredentials() ?? RedditBotCredentials.EmptyCredentials(),
             new RedditBotTriggerCollection(
                 Triggers
-                    .Where(t => t.Type == BotUserNameMentionInCommentTriggerDocument.TriggerType)
+                    ?.Where(t => t.Type == BotUserNameMentionInCommentTriggerDocument.TriggerType)
                     .Cast<BotUserNameMentionInCommentTriggerDocument>()
-                    .Select(t => t.ToTrigger()),
+                    .Select(t => t.ToTrigger()) ?? Array.Empty<BotUserNameMentionInCommentTrigger>(),
                 Triggers
-                    .Where(t => t.Type == NewPostInSubredditTriggerDocument.TriggerType)
+                    ?.Where(t => t.Type == NewPostInSubredditTriggerDocument.TriggerType)
                     .Cast<NewPostInSubredditTriggerDocument>()
-                    .Select(t => t.ToTrigger())
+                    .Select(t => t.ToTrigger()) ?? Array.Empty<NewPostInSubredditTrigger>()
                 ),
             CreatedAt);
 }

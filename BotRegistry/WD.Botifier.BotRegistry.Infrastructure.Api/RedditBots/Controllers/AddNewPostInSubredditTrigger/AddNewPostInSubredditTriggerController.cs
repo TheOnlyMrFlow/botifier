@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WD.Botifier.BotRegistry.Application.RedditBots.AddNewPostInSubredditTrigger;
@@ -22,8 +23,9 @@ public class AddNewPostInSubredditTriggerController : ControllerBase
         _addNewPostInSubredditTriggerCommandHandler = addNewPostInSubredditTriggerCommandHandler;
     }
     
+    [Authorize]
     [HttpPost("redditBots/{botId:guid}/triggers/newPostInSubreddit", Name = "Add a new NewPostInSubreddit trigger to a reddit bot")]
-    private async Task<IActionResult?> AddWebhookAsync(Guid botId, AddNewPostInSubredditTriggerHttpRequestBody requestBody)
+    public async Task<IActionResult?> AddTriggerAsync(Guid botId, AddNewPostInSubredditTriggerHttpRequestBody requestBody)
     {
         var userId = this.GetAuthenticatedUserId();
         var command = new AddNewPostInSubredditTriggerCommand(userId, new RedditBotId(botId), requestBody.SubredditNames.Select(sr => new SubredditName(sr)));
