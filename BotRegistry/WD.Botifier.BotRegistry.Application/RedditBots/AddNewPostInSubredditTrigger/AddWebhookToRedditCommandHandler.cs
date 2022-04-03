@@ -18,7 +18,7 @@ public class AddNewPostInSubredditTriggerCommandHandler
     {
         var bot = await _redditBotRepository.GetAsync(command.UserId, command.BotId);
         if (bot is null)
-            return new AddNewPostInSubredditTriggerCommandBotNotFounResult();
+            return new AddNewPostInSubredditTriggerCommandBotNotFoundResult();
 
         var triggerSettings = new NewPostInSubredditTriggerSettings(command.SubredditNames);
         bot.AddNewTrigger(triggerSettings);

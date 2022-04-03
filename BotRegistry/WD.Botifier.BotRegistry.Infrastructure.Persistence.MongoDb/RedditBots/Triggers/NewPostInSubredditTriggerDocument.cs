@@ -3,7 +3,7 @@ using System.Linq;
 using MongoDB.Bson.Serialization.Attributes;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers.NewPostInSubreddit;
-using WD.Botifier.BotRegistry.Domain.RedditBots.Webhooks;
+using WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Triggers.Webhooks;
 using WD.Botifier.SharedKernel.Reddit;
 
 namespace WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Triggers;
@@ -13,13 +13,13 @@ public class NewPostInSubredditTriggerDocument : RedditBotTriggerDocumentBase<Ne
 {
     public const string TriggerType = "NewPostInSubreddit";
     
-    public NewPostInSubredditTriggerDocument(NewPostInSubredditTrigger trigger)
+    public NewPostInSubredditTriggerDocument(NewPostInSubredditTrigger trigger) 
+        : base(trigger,  new NewPostInSubredditTriggerSettingsDocument(trigger.Settings))
     {
-        Settings = new NewPostInSubredditTriggerSettingsDocument(trigger.Settings);
     }
 
     public NewPostInSubredditTrigger ToTrigger() 
-        => new (new RedditTriggerId(Id), Settings.ToSettings(), new List<Webhook>());
+        => new (new RedditTriggerId(Id), Settings.ToSettings(), Webhooks.ToWebhooks());
 
     public override string Type => TriggerType;
 }

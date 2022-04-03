@@ -10,7 +10,7 @@ public class BotUserNameMentionInCommentTrigger : RedditTriggerBase<BotUserNameM
     public static BotUserNameMentionInCommentTrigger NewBotUserNameMentionInCommentTrigger(BotUserNameMentionInCommentTriggerSettings settings)
         => new(RedditTriggerId.NewRedditTriggerId(), settings, new List<Webhook>());
     
-    public BotUserNameMentionInCommentTrigger(RedditTriggerId id, BotUserNameMentionInCommentTriggerSettings settings, ICollection<Webhook> webhooks) : base(id, settings, webhooks)
+    public BotUserNameMentionInCommentTrigger(RedditTriggerId id, BotUserNameMentionInCommentTriggerSettings settings, IEnumerable<Webhook> webhooks) : base(id, settings, webhooks)
     {
     }
 }

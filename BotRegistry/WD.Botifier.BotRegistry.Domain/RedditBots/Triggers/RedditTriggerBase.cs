@@ -35,5 +35,7 @@ public abstract class RedditTriggerBase<TSettings> : IRedditTrigger where TSetti
     {
         if (_webhooks.Any(wh => wh.Url == webhook.Url))
             throw new ArgumentException($"Webhook with url {webhook.Url} already exists"); // todo: better exception, or even better: allow to add multiple webhooks with same url but show a warning
+        
+        _webhooks.Add(webhook);
     }
 }

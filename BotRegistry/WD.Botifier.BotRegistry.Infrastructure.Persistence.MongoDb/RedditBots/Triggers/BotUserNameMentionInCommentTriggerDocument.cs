@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using MongoDB.Bson.Serialization.Attributes;
+﻿using MongoDB.Bson.Serialization.Attributes;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers.BotUserNameMentionInComment;
-using WD.Botifier.BotRegistry.Domain.RedditBots.Webhooks;
+using WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Triggers.Webhooks;
 
 namespace WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Triggers;
 
@@ -11,13 +10,13 @@ public class BotUserNameMentionInCommentTriggerDocument : RedditBotTriggerDocume
 {
     public const string TriggerType = "BotUserNameMentionInComment";
     
-    public BotUserNameMentionInCommentTriggerDocument(BotUserNameMentionInCommentTrigger trigger)
+    public BotUserNameMentionInCommentTriggerDocument(BotUserNameMentionInCommentTrigger trigger) 
+        : base(trigger, new BotUserNameMentionInCommentTriggerSettingsDocument(trigger.Settings))
     {
-        Settings = new BotUserNameMentionInCommentTriggerSettingsDocument(trigger.Settings);
     }
-    
+
     public BotUserNameMentionInCommentTrigger ToTrigger()
-        => new (new RedditTriggerId(Id), Settings.ToSettings(), new List<Webhook>());
+        => new (new RedditTriggerId(Id), Settings.ToSettings(), Webhooks.ToWebhooks());
 
     public override string Type => TriggerType;
 }

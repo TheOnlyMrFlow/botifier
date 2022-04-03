@@ -3,6 +3,7 @@ using WD.Botifier.BotRegistry.Domain.RedditBots.Credentials;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers.BotUserNameMentionInComment;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers.NewPostInSubreddit;
+using WD.Botifier.BotRegistry.Domain.RedditBots.Webhooks;
 using WD.Botifier.BotRegistry.Domain.SharedKernel.Bots;
 using WD.Botifier.SeedWork;
 using WD.Botifier.SharedKernel;
@@ -65,4 +66,7 @@ public class RedditBot : Entity, IAggregateRoot, IBot<RedditBotId>
         _triggers.AddTrigger(trigger);
         return trigger;
     }
+    
+    public void AddWebhookToTrigger(RedditTriggerId triggerId, Webhook webhook) 
+        => _triggers.AddWebhookToTrigger(triggerId, webhook);
 }
