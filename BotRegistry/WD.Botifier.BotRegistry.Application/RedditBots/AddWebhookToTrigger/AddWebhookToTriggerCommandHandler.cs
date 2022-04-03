@@ -17,7 +17,7 @@ public class AddWebhookToTriggerCommandHandler
     {
         var bot = await _redditBotRepository.GetAsync(command.UserId, command.BotId);
         if (bot is null)
-            return new AddWebhookToTriggerCommandBotNotFounResult();
+            return new AddWebhookToTriggerCommandBotNotFoundResult();
 
         bot.AddWebhookToTrigger(command.TriggerId, new Webhook(command.WebhookName, command.WebhookUrl));
 

@@ -17,7 +17,7 @@ public class AddBotUserNameMentionInCommentTriggerCommandHandler
     {
         var bot = await _redditBotRepository.GetAsync(command.UserId, command.BotId);
         if (bot is null)
-            return new AddBotUserNameMentionInCommentTriggerCommandBotNotFounResult();
+            return new AddBotUserNameMentionInCommentTriggerCommandBotNotFoundResult();
 
         bot.AddNewTrigger(new BotUserNameMentionInCommentTriggerSettings());
 

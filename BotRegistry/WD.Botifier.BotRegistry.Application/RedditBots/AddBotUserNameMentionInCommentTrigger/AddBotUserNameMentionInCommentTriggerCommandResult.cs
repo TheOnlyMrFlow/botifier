@@ -3,7 +3,7 @@ using OneOf;
 namespace WD.Botifier.BotRegistry.Application.RedditBots.AddBotUserNameMentionInCommentTrigger;
 
 [GenerateOneOf]
-public partial class AddBotUserNameMentionInCommentTriggerCommandResult : OneOfBase<AddBotUserNameMentionInCommentTriggerCommandSuccessResult, AddBotUserNameMentionInCommentTriggerCommandBotNotFounResult>
+public partial class AddBotUserNameMentionInCommentTriggerCommandResult : OneOfBase<AddBotUserNameMentionInCommentTriggerCommandSuccessResult, AddBotUserNameMentionInCommentTriggerCommandBotNotFoundResult>
 {
 }
 
@@ -11,6 +11,6 @@ public class AddBotUserNameMentionInCommentTriggerCommandSuccessResult
 {
 }
 
-public class AddBotUserNameMentionInCommentTriggerCommandBotNotFounResult
+public class AddBotUserNameMentionInCommentTriggerCommandBotNotFoundResult
 {
 }
