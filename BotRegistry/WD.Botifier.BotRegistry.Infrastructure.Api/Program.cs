@@ -5,11 +5,13 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using WD.Botifier.BotRegistry.Application.RedditBots.AddBotUserNameMentionInCommentTrigger;
 using WD.Botifier.BotRegistry.Application.RedditBots.AddNewPostInSubredditTrigger;
+using WD.Botifier.BotRegistry.Application.RedditBots.AddWebhookToTrigger;
 using WD.Botifier.BotRegistry.Application.RedditBots.CreateRedditBot;
 using WD.Botifier.BotRegistry.Application.RedditBots.EditRedditBotCredentials;
 using WD.Botifier.BotRegistry.Application.RedditBots.ListRedditBotsOfOwner;
 using WD.Botifier.BotRegistry.Domain.RedditBots;
 using WD.Botifier.BotRegistry.Infrastructure.Api;
+using WD.Botifier.BotRegistry.Infrastructure.Api.RedditBots.Controllers.AddWebhookToTrigger;
 using WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb;
 using WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots;
 
@@ -47,6 +49,7 @@ services.AddTransient<EditRedditBotCredentialsCommandHandler>();
 services.AddTransient<ListRedditBotsOfOwnerQueryHandler>();
 services.AddTransient<AddNewPostInSubredditTriggerCommandHandler>();
 services.AddTransient<AddBotUserNameMentionInCommentTriggerCommandHandler>();
+services.AddTransient<AddWebhookToTriggerCommandHandler>();
 
 var app = builder.Build();
 

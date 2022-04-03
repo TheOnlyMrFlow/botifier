@@ -13,7 +13,4 @@ public class Webhook
 
     public WebhookName Name { get;}
     public Uri Url { get; }
-
-    public static Webhook NewRedditWebhook(WebhookName name, Uri url)
-        => new (name, url);
 }

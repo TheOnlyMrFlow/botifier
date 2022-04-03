@@ -9,7 +9,7 @@ public class NewPostInSubredditTrigger : RedditTriggerBase<NewPostInSubredditTri
     public static NewPostInSubredditTrigger NewNewPostInSubredditTrigger(NewPostInSubredditTriggerSettings settings)
         => new(RedditTriggerId.NewRedditTriggerId(), settings, new List<Webhook>());
     
-    public NewPostInSubredditTrigger(RedditTriggerId id, NewPostInSubredditTriggerSettings settings, ICollection<Webhook> webhooks) : base(id, settings, webhooks)
+    public NewPostInSubredditTrigger(RedditTriggerId id, NewPostInSubredditTriggerSettings settings, IEnumerable<Webhook> webhooks) : base(id, settings, webhooks)
     {
     }
 }

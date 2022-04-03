@@ -18,6 +18,9 @@ public class RedditBotTriggerCollection
     {
         _botUserNameMentionInCommentTriggers = new List<BotUserNameMentionInCommentTrigger>(botUserNameMentionInCommentTriggers);
         _newPostInSubredditTriggers = new  List<NewPostInSubredditTrigger>(newPostInSubredditTriggers);
+
+        foreach (var trigger in _botUserNameMentionInCommentTriggers.Concat<IRedditTrigger>(_newPostInSubredditTriggers))
+            _triggersById.Add(trigger.Id.Value, trigger);
     }
     
     private readonly ICollection<BotUserNameMentionInCommentTrigger> _botUserNameMentionInCommentTriggers;
@@ -40,9 +43,9 @@ public class RedditBotTriggerCollection
         AddTriggerToDictionary(trigger);
     }
     
-    public void AddWebhookToTrigger(Guid triggerId, Webhook webhook)
+    public void AddWebhookToTrigger(RedditTriggerId triggerId, Webhook webhook)
     {
-        var trigger = _triggersById[triggerId]; // todo error handling if not exists
+        var trigger = _triggersById[triggerId.Value]; // todo error handling if not exists
         trigger.AddWebhook(webhook);
     }
     
