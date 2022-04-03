@@ -3,7 +3,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using WD.Botifier.BotRegistry.Application.RedditBots;
+using WD.Botifier.BotRegistry.Application.RedditBots.AddBotUserNameMentionInCommentTrigger;
+using WD.Botifier.BotRegistry.Application.RedditBots.AddNewPostInSubredditTrigger;
 using WD.Botifier.BotRegistry.Application.RedditBots.CreateRedditBot;
 using WD.Botifier.BotRegistry.Application.RedditBots.EditRedditBotCredentials;
 using WD.Botifier.BotRegistry.Application.RedditBots.ListRedditBotsOfOwner;
@@ -44,6 +45,8 @@ services.AddTransient<IRedditBotRepository, RedditBotRepository>();
 services.AddTransient<CreateRedditBotCommandHandler>();
 services.AddTransient<EditRedditBotCredentialsCommandHandler>();
 services.AddTransient<ListRedditBotsOfOwnerQueryHandler>();
+services.AddTransient<AddNewPostInSubredditTriggerCommandHandler>();
+services.AddTransient<AddBotUserNameMentionInCommentTriggerCommandHandler>();
 
 var app = builder.Build();
 

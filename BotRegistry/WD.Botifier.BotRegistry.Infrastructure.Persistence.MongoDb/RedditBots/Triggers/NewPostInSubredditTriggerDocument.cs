@@ -1,19 +1,38 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
+using MongoDB.Bson.Serialization.Attributes;
+using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers.NewPostInSubreddit;
+using WD.Botifier.BotRegistry.Domain.RedditBots.Webhooks;
 using WD.Botifier.SharedKernel.Reddit;
 
 namespace WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Triggers;
 
-public class NewPostInSubredditTriggerDocument : RedditTriggerDocument<NewPostInSubredditTrigger>
+[BsonDiscriminator(TriggerType)]
+public class NewPostInSubredditTriggerDocument : RedditBotTriggerDocumentBase<NewPostInSubredditTriggerSettingsDocument>
 {
-    public NewPostInSubredditTriggerDocument(NewPostInSubredditTrigger trigger) : base(trigger)
+    public const string TriggerType = "NewPostInSubreddit";
+    
+    public NewPostInSubredditTriggerDocument(NewPostInSubredditTrigger trigger)
     {
-        SubredditNames = trigger.SubredditNames.Select(sr => sr.WithoutRSlash).ToList();
+        Settings = new NewPostInSubredditTriggerSettingsDocument(trigger.Settings);
+    }
+
+    public NewPostInSubredditTrigger ToTrigger() 
+        => new (new RedditTriggerId(Id), Settings.ToSettings(), new List<Webhook>());
+
+    public override string Type => TriggerType;
+}
+
+public class NewPostInSubredditTriggerSettingsDocument : IRedditBotTriggerSettingsDocument
+{
+    public NewPostInSubredditTriggerSettingsDocument(NewPostInSubredditTriggerSettings triggerSettings)
+    {
+        Subreddits = triggerSettings.Subreddits.Select(sr => sr.WithoutRSlash).ToList();
     }
     
-    public ICollection<string> SubredditNames { get; set; }
+    public ICollection<string> Subreddits { get; set; }
 
-    public override NewPostInSubredditTrigger ToRedditTrigger() 
-        => new(SubredditNames.Select(sr => new SubredditName(sr)));
+    public NewPostInSubredditTriggerSettings ToSettings()
+        => new(Subreddits.Select(sr => new SubredditName(sr)));
 }

@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Credentials;
+using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers.BotUserNameMentionInComment;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers.NewPostInSubreddit;
-using WD.Botifier.BotRegistry.Domain.RedditBots.Webhooks;
 using WD.Botifier.BotRegistry.Domain.SharedKernel.Bots;
 using WD.Botifier.SeedWork;
 using WD.Botifier.SharedKernel;
@@ -18,8 +16,7 @@ public class RedditBot : Entity, IAggregateRoot, IBot<RedditBotId>
         UserId ownerId, 
         BotName name, 
         RedditBotCredentials credentials,
-        ICollection<RedditWebhook<BotUserNameMentionInCommentTrigger>> botUserNameMentionInCommentWebhooks,
-        ICollection<RedditWebhook<NewPostInSubredditTrigger>> newPostInSubredditWebhooks,
+        RedditBotTriggerCollection triggers,
         DateTime createdAt)
     {
         Id = id;
@@ -27,8 +24,7 @@ public class RedditBot : Entity, IAggregateRoot, IBot<RedditBotId>
         Name = name;
         Credentials = credentials;
         CreatedAt = createdAt;
-        _botUserNameMentionInCommentWebhooks = botUserNameMentionInCommentWebhooks;
-        _newPostInSubredditWebhooks = newPostInSubredditWebhooks;
+        _triggers = triggers;
     }
     
     public RedditBotId Id { get; }
@@ -41,28 +37,32 @@ public class RedditBot : Entity, IAggregateRoot, IBot<RedditBotId>
     
     public DateTime CreatedAt { get; }
 
-    private readonly ICollection<RedditWebhook<BotUserNameMentionInCommentTrigger>> _botUserNameMentionInCommentWebhooks;
-    public IReadOnlyCollection<RedditWebhook<BotUserNameMentionInCommentTrigger>> BotUserNameMentionInCommentWebhooks => _botUserNameMentionInCommentWebhooks.ToList().AsReadOnly();
-    
-    private readonly ICollection<RedditWebhook<NewPostInSubredditTrigger>> _newPostInSubredditWebhooks;
-    public IReadOnlyCollection<RedditWebhook<NewPostInSubredditTrigger>> NewPostInSubredditWebhooks => _newPostInSubredditWebhooks.ToList().AsReadOnly();
-    
+    private readonly RedditBotTriggerCollection _triggers;
+    public RedditBotTriggerReadonlyCollection Triggers => _triggers.AsReadonly();
+
     public static RedditBot NewBot(UserId ownerId, BotName name) 
         => new(
             RedditBotId.NewBotId(),
             ownerId, 
             name, 
             RedditBotCredentials.EmptyCredentials(),
-            new List<RedditWebhook<BotUserNameMentionInCommentTrigger>>(),
-            new List<RedditWebhook<NewPostInSubredditTrigger>>(),
+            RedditBotTriggerCollection.NewRedditBotTriggerCollection(), 
             DateTime.UtcNow);
     
     public void SetCredentials(RedditBotCredentials credentials) 
         => Credentials = credentials;
 
-    public void AddWebhook(RedditWebhook<BotUserNameMentionInCommentTrigger> webhook) 
-        => _botUserNameMentionInCommentWebhooks.Add(webhook);
+    public BotUserNameMentionInCommentTrigger AddNewTrigger(BotUserNameMentionInCommentTriggerSettings triggerSettings)
+    {
+        var trigger = BotUserNameMentionInCommentTrigger.NewBotUserNameMentionInCommentTrigger(triggerSettings);
+        _triggers.AddTrigger(trigger);
+        return trigger;
+    }
 
-    public void AddWebhook(RedditWebhook<NewPostInSubredditTrigger> webhook) 
-        => _newPostInSubredditWebhooks.Add(webhook);
+    public NewPostInSubredditTrigger AddNewTrigger(NewPostInSubredditTriggerSettings triggerSettings)
+    {
+        var trigger = NewPostInSubredditTrigger.NewNewPostInSubredditTrigger(triggerSettings);
+        _triggers.AddTrigger(trigger);
+        return trigger;
+    }
 }

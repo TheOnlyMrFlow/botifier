@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using WD.Botifier.BotRegistry.Application.RedditBots.EditRedditBotCredentials;
 using WD.Botifier.BotRegistry.Domain.RedditBots;
 
 namespace WD.Botifier.BotRegistry.Application.RedditBots.CreateRedditBot;
