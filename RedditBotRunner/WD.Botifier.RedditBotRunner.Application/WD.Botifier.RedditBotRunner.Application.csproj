@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\WD.Botifier.SharedKernel\WD.Botifier.SharedKernel.csproj" />
+      <ProjectReference Include="..\WD.Botifier.RedditBotRunner.Domain\WD.Botifier.RedditBotRunner.Domain.csproj" />
+      <ProjectReference Include="..\WD.Botifier.SeedWork\WD.Botifier.SeedWork.csproj" />
+    </ItemGroup>
+
+</Project>

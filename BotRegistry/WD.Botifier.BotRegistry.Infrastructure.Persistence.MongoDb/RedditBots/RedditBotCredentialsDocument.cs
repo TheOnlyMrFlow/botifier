@@ -1,15 +1,15 @@
-﻿using WD.Botifier.BotRegistry.Domain.RedditBots.Credentials;
+﻿using WD.Botifier.SharedKernel.Reddit.AppCredentials;
 
 namespace WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots;
 
 public class RedditBotCredentialsDocument
 {
-    public RedditBotCredentialsDocument(RedditBotCredentials redditBotCredentials)
+    public RedditBotCredentialsDocument(RedditAppCredentials redditAppCredentials)
     {
-        UserName = redditBotCredentials.UserName.Value;
-        Password = redditBotCredentials.Password.Value;
-        ClientId = redditBotCredentials.ClientId.Value;
-        ClientSecret = redditBotCredentials.ClientSecret.Value;
+        UserName = redditAppCredentials.UserName.Value;
+        Password = redditAppCredentials.Password.Value;
+        ClientId = redditAppCredentials.AppClientId.Value;
+        ClientSecret = redditAppCredentials.AppClientSecret.Value;
     }
     
     public string UserName { get; set; }
@@ -17,11 +17,11 @@ public class RedditBotCredentialsDocument
     public string ClientId { get; set; }
     public string ClientSecret { get; set; }
     
-    public RedditBotCredentials ToRedditBotCredentials() 
+    public RedditAppCredentials ToRedditBotCredentials() 
         => new(
             new RedditUserName(UserName),
             new RedditPassword(Password),
-            new RedditClientId(ClientId),
-            new RedditClientSecret(ClientSecret)
+            new RedditAppClientId(ClientId),
+            new RedditAppClientSecret(ClientSecret)
         );
 }

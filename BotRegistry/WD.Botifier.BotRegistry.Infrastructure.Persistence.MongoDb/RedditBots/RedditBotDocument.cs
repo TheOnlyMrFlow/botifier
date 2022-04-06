@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using MongoDB.Bson.Serialization.Attributes;
 using WD.Botifier.BotRegistry.Domain.RedditBots;
-using WD.Botifier.BotRegistry.Domain.RedditBots.Credentials;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers.BotUserNameMentionInComment;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers.NewPostInSubreddit;
 using WD.Botifier.BotRegistry.Domain.SharedKernel.Bots;
 using WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Triggers;
 using WD.Botifier.SharedKernel;
+using WD.Botifier.SharedKernel.Reddit.AppCredentials;
 
 namespace WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots;
 
@@ -49,7 +49,7 @@ public class RedditBotDocument
             new RedditBotId(Id),
             new UserId(OwnerId), 
             new BotName(Name), 
-            Credentials?.ToRedditBotCredentials() ?? RedditBotCredentials.EmptyCredentials(),
+            Credentials?.ToRedditBotCredentials() ?? RedditAppCredentials.EmptyCredentials(),
             new RedditBotTriggerCollection(
                 Triggers
                     ?.Where(t => t.Type == BotUserNameMentionInCommentTriggerDocument.TriggerType)

@@ -1,4 +1,4 @@
-﻿namespace WD.Botifier.BotRegistry.Domain.RedditBots.Credentials;
+﻿namespace WD.Botifier.SharedKernel.Reddit.AppCredentials;
 
 public class RedditUserName
 {

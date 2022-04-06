@@ -1,8 +1,9 @@
 ﻿using System.Linq;
+using WD.Botifier.SeedWork;
 
 namespace WD.Botifier.SharedKernel.Reddit;
 
-public class SubredditName
+public class SubredditName : ValueObject
 {
     public string WithoutRSlash { get; }
     

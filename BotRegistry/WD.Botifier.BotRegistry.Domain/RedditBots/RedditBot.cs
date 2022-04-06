@@ -1,5 +1,4 @@
 ﻿using System;
-using WD.Botifier.BotRegistry.Domain.RedditBots.Credentials;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers.BotUserNameMentionInComment;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers.NewPostInSubreddit;
@@ -7,6 +6,7 @@ using WD.Botifier.BotRegistry.Domain.RedditBots.Webhooks;
 using WD.Botifier.BotRegistry.Domain.SharedKernel.Bots;
 using WD.Botifier.SeedWork;
 using WD.Botifier.SharedKernel;
+using WD.Botifier.SharedKernel.Reddit.AppCredentials;
 
 namespace WD.Botifier.BotRegistry.Domain.RedditBots;
 
@@ -16,7 +16,7 @@ public class RedditBot : Entity, IAggregateRoot, IBot<RedditBotId>
         RedditBotId id, 
         UserId ownerId, 
         BotName name, 
-        RedditBotCredentials credentials,
+        RedditAppCredentials credentials,
         RedditBotTriggerCollection triggers,
         DateTime createdAt)
     {
@@ -34,7 +34,7 @@ public class RedditBot : Entity, IAggregateRoot, IBot<RedditBotId>
     
     public BotName Name { get; } 
     
-    public RedditBotCredentials Credentials { get; private set; }
+    public RedditAppCredentials Credentials { get; private set; }
     
     public DateTime CreatedAt { get; }
 
@@ -46,11 +46,11 @@ public class RedditBot : Entity, IAggregateRoot, IBot<RedditBotId>
             RedditBotId.NewBotId(),
             ownerId, 
             name, 
-            RedditBotCredentials.EmptyCredentials(),
+            RedditAppCredentials.EmptyCredentials(),
             RedditBotTriggerCollection.NewRedditBotTriggerCollection(), 
             DateTime.UtcNow);
     
-    public void SetCredentials(RedditBotCredentials credentials) 
+    public void SetCredentials(RedditAppCredentials credentials) 
         => Credentials = credentials;
 
     public BotUserNameMentionInCommentTrigger AddNewTrigger(BotUserNameMentionInCommentTriggerSettings triggerSettings)

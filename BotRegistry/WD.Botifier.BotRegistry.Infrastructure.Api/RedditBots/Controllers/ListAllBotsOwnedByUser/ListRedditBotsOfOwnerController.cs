@@ -6,7 +6,6 @@ using Microsoft.Extensions.Logging;
 using WD.Botifier.BotRegistry.Application.RedditBots.EditRedditBotCredentials;
 using WD.Botifier.BotRegistry.Application.RedditBots.ListRedditBotsOfOwner;
 using WD.Botifier.BotRegistry.Domain.RedditBots;
-using WD.Botifier.BotRegistry.Domain.RedditBots.Credentials;
 using WD.Botifier.BotRegistry.Infrastructure.Api.RedditBots.Controllers.CreateRedditBot;
 using WD.Botifier.BotRegistry.Infrastructure.Api.RedditBots.Controllers.EditRedditBotCredentials;
 
