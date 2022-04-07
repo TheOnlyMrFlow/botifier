@@ -1,8 +1,8 @@
 ﻿using System;
 using WD.Botifier.BotRegistry.Domain.RedditBots;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers;
-using WD.Botifier.BotRegistry.Domain.SharedKernel.Webhooks;
 using WD.Botifier.SharedKernel;
+using WD.Botifier.SharedKernel.Webhooks;
 
 namespace WD.Botifier.BotRegistry.Application.RedditBots.AddWebhookToTrigger;
 

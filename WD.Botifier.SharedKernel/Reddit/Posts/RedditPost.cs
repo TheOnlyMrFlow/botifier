@@ -4,9 +4,14 @@ namespace WD.Botifier.SharedKernel.Reddit.Posts;
 
 public class RedditPost
 {
-    public static RedditPost FromRawJson(string rawJson)
+    public RedditPost(string rawJson, RedditPostId id, RedditPostTitle title, RedditPostContent content, SubredditName subreddit, DateTime postedAt)
     {
-        return new RedditPost();
+        RawJson = rawJson;
+        Id = id;
+        Title = title;
+        Content = content;
+        Subreddit = subreddit;
+        PostedAt = postedAt;
     }
     
     public string RawJson { get; }

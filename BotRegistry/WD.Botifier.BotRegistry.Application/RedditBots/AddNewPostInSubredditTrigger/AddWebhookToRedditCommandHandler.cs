@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
 using WD.Botifier.BotRegistry.Domain.RedditBots;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers.NewPostInSubreddit;
-using WD.Botifier.BotRegistry.Domain.RedditBots.Webhooks;
 
 namespace WD.Botifier.BotRegistry.Application.RedditBots.AddNewPostInSubredditTrigger;
 

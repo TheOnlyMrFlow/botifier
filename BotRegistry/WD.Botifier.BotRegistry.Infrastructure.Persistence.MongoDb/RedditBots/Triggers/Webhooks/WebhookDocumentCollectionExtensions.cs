@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using WD.Botifier.BotRegistry.Domain.RedditBots.Webhooks;
+using WD.Botifier.SharedKernel.Webhooks;
 
 namespace WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Triggers.Webhooks;
 

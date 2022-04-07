@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\WD.Botifier.SharedKernel\WD.Botifier.SharedKernel.csproj" />
+      <ProjectReference Include="..\WD.Botifier.RedditBotRunner.Application\WD.Botifier.RedditBotRunner.Application.csproj" />
     </ItemGroup>
 
 </Project>

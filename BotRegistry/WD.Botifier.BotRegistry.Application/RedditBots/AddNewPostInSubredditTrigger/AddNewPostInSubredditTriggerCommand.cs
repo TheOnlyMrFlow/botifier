@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using WD.Botifier.BotRegistry.Domain.RedditBots;
-using WD.Botifier.BotRegistry.Domain.SharedKernel.Webhooks;
 using WD.Botifier.SharedKernel;
 using WD.Botifier.SharedKernel.Reddit;
 

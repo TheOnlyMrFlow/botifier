@@ -8,7 +8,17 @@
     <ItemGroup>
       <ProjectReference Include="..\..\WD.Botifier.SharedKernel\WD.Botifier.SharedKernel.csproj" />
       <ProjectReference Include="..\WD.Botifier.RedditBotRunner.Domain\WD.Botifier.RedditBotRunner.Domain.csproj" />
-      <ProjectReference Include="..\WD.Botifier.SeedWork\WD.Botifier.SeedWork.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Reference Include="Microsoft.Extensions.Hosting.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+        <HintPath>C:\Users\MrFlow\.nuget\packages\microsoft.extensions.hosting.abstractions\6.0.0\lib\netstandard2.1\Microsoft.Extensions.Hosting.Abstractions.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+      <PackageReference Include="RestSharp" Version="107.3.1-alpha.0.20" />
+    </ItemGroup>
+    
 </Project>

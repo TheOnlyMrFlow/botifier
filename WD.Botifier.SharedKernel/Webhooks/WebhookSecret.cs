@@ -1,7 +1,6 @@
-﻿using System.Threading;
-using WD.Botifier.SeedWork;
+﻿using WD.Botifier.SeedWork;
 
-namespace WD.Botifier.BotRegistry.Domain.SharedKernel.Webhooks;
+namespace WD.Botifier.SharedKernel.Webhooks;
 
 public class WebhookSecret : StringValueBase
 {

@@ -6,8 +6,4 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\..\WD.Botifier.SharedKernel\WD.Botifier.SharedKernel.csproj" />
-    </ItemGroup>
-
 </Project>

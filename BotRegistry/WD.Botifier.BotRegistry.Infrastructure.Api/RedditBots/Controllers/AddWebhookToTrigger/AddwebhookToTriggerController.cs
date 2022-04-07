@@ -8,10 +8,10 @@ using WD.Botifier.BotRegistry.Application.RedditBots.AddNewPostInSubredditTrigge
 using WD.Botifier.BotRegistry.Application.RedditBots.AddWebhookToTrigger;
 using WD.Botifier.BotRegistry.Domain.RedditBots;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers;
-using WD.Botifier.BotRegistry.Domain.SharedKernel.Webhooks;
 using WD.Botifier.BotRegistry.Infrastructure.Api.RedditBots.Controllers.AddBotUserNameMentionInCommentTrigger;
 using WD.Botifier.BotRegistry.Infrastructure.Api.RedditBots.Controllers.AddNewPostInSubredditTrigger;
 using WD.Botifier.SharedKernel.Reddit;
+using WD.Botifier.SharedKernel.Webhooks;
 
 namespace WD.Botifier.BotRegistry.Infrastructure.Api.RedditBots.Controllers.AddWebhookToTrigger;
 

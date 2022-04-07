@@ -1,7 +1,6 @@
 ﻿using System;
-using WD.Botifier.BotRegistry.Domain.SharedKernel.Webhooks;
 
-namespace WD.Botifier.BotRegistry.Domain.RedditBots.Webhooks;
+namespace WD.Botifier.SharedKernel.Webhooks;
 
 public class Webhook
 {

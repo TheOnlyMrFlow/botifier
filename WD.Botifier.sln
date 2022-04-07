@@ -42,6 +42,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.RedditBotRunner
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.RedditBotRunner.Worker", "RedditBotRunner\WD.Botifier.RedditBotRunner.Worker\WD.Botifier.RedditBotRunner.Worker.csproj", "{2E0786AB-07E6-4267-A04D-2A1B22A39DCE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.SharedInfra.IntegrationEvents", "WD.Botifier.SharedInfra.IntegrationEvents\WD.Botifier.SharedInfra.IntegrationEvents.csproj", "{93A7670D-1CD7-4B57-B97A-1D9F7FA579ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.RedditBotRunner.Infra.BotRegistryClient", "RedditBotRunner\WD.Botifier.RedditBotRunner.Infra.BotRegistryClient\WD.Botifier.RedditBotRunner.Infra.BotRegistryClient.csproj", "{A58838C7-2D23-4A78-93A7-366405DF14CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -116,6 +120,14 @@ Global
 		{2E0786AB-07E6-4267-A04D-2A1B22A39DCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E0786AB-07E6-4267-A04D-2A1B22A39DCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E0786AB-07E6-4267-A04D-2A1B22A39DCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93A7670D-1CD7-4B57-B97A-1D9F7FA579ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93A7670D-1CD7-4B57-B97A-1D9F7FA579ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93A7670D-1CD7-4B57-B97A-1D9F7FA579ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93A7670D-1CD7-4B57-B97A-1D9F7FA579ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A58838C7-2D23-4A78-93A7-366405DF14CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A58838C7-2D23-4A78-93A7-366405DF14CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A58838C7-2D23-4A78-93A7-366405DF14CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A58838C7-2D23-4A78-93A7-366405DF14CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{5DF39791-8059-4D26-B24A-9BD0EB037C92} = {F5FB91E6-7AC7-4937-9385-CF8010AA04BF}
@@ -132,5 +144,6 @@ Global
 		{89644CA9-782D-4796-972A-E513B8631190} = {DE02F10B-7122-4761-B728-D59AE948FBC9}
 		{E861DE67-5EC5-4E43-BD3A-DC8DEF6FED35} = {DE02F10B-7122-4761-B728-D59AE948FBC9}
 		{2E0786AB-07E6-4267-A04D-2A1B22A39DCE} = {DE02F10B-7122-4761-B728-D59AE948FBC9}
+		{A58838C7-2D23-4A78-93A7-366405DF14CD} = {DE02F10B-7122-4761-B728-D59AE948FBC9}
 	EndGlobalSection
 EndGlobal

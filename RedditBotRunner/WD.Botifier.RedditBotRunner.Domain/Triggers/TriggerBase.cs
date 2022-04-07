@@ -1,8 +1,17 @@
-﻿namespace WD.Botifier.RedditBotRunner.Domain.Triggers;
+﻿using WD.Botifier.SharedKernel.Webhooks;
+
+namespace WD.Botifier.RedditBotRunner.Domain.Triggers;
 
 public abstract class TriggerBase
 {
-    public Guid Id { get; }
+    protected TriggerBase(TriggerId id, Guid redditBotId, IEnumerable<Webhook> webhooks)
+    {
+        Id = id;
+        RedditBotId = redditBotId;
+        Webhooks = webhooks;
+    }
+
+    public TriggerId Id { get; }
     
     public Guid RedditBotId { get; set; }
     

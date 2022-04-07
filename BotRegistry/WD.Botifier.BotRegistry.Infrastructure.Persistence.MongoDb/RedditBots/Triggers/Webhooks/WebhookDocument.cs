@@ -1,7 +1,6 @@
 ﻿using System;
 using MongoDB.Bson.Serialization.Attributes;
-using WD.Botifier.BotRegistry.Domain.RedditBots.Webhooks;
-using WD.Botifier.BotRegistry.Domain.SharedKernel.Webhooks;
+using WD.Botifier.SharedKernel.Webhooks;
 
 namespace WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Triggers.Webhooks;
 

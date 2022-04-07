@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers.NewPostInSubreddit;
-using WD.Botifier.BotRegistry.Domain.RedditBots.Webhooks;
+using WD.Botifier.SharedKernel.Webhooks;
 
 namespace WD.Botifier.BotRegistry.Domain.RedditBots.Triggers.BotUserNameMentionInComment;
 

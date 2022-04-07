@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reactive.Disposables;
+using System.Threading;
+using RedditSharp;
+using WD.Botifier.RedditBotRunner.Infra.RedditApIClient;
 using WD.Botifier.SharedKernel.Reddit;
 using WD.Botifier.SharedKernel.Reddit.Posts;
 
@@ -10,11 +13,12 @@ internal class NewPostInSubredditWatcher
 {
     private readonly RedditSharpClient _redditSharpClient;
     private readonly Dictionary<SubredditName, ICollection<WatchSubscription>> _subscriptions = new ();
+    private readonly Dictionary<SubredditName, CancellationTokenSource> _enumeratorsCancellationTokenSources = new ();
     private readonly Dictionary<SubredditName, IDisposable> _subredditObservers = new ();
 
     public NewPostInSubredditWatcher()
     {
-        _redditSharpClient = new RedditSharpClient();
+        _redditSharpClient = new RedditSharpClient(new BotWebAgent("8bitfier", "fPrL^N%S3Lc02NC%", "UXyHK6OWWmkULQ", "WWXpXdd6LqaQ4de72ArpvLdoJEORLQ", "https://google.com"), true);
     }
 
     public IDisposable Watch(IEnumerable<SubredditName> subreddits, Action<RedditPost> callback)
@@ -38,16 +42,20 @@ internal class NewPostInSubredditWatcher
     {
         if (_subredditObservers.ContainsKey(subreddit))
             return;
-            
-        var observer = _redditSharpClient
-            .GetSubredditAsync(subreddit.WithRSlash)
+
+        var postStream = _redditSharpClient
+            .GetSubredditAsync(subreddit.WithoutRSlash)
             .GetAwaiter()
             .GetResult()
             .GetPosts()
-            .Stream()
-            .Subscribe(redditSharpPost => OnNewPost(RedditPost.FromRawJson(redditSharpPost.RawJson.ToString())));
+            .Stream();
             
+        var observer = postStream.Subscribe(redditSharpPost => OnNewPost(redditSharpPost.ToDomainRedditPost()));
         _subredditObservers.Add(subreddit, observer);
+
+        var enumeratorCancellationTokenSource = new CancellationTokenSource();
+        postStream.Enumerate(enumeratorCancellationTokenSource.Token);
+        _enumeratorsCancellationTokenSources.Add(subreddit, enumeratorCancellationTokenSource);
     }
 
     private void DisposeSubscription(WatchSubscription subscription)
@@ -65,6 +73,7 @@ internal class NewPostInSubredditWatcher
     {
         _subscriptions.Remove(subreddit);
         _subredditObservers[subreddit].Dispose();
+        _enumeratorsCancellationTokenSources[subreddit].Cancel();
     }
 
     private void OnNewPost(RedditPost post)

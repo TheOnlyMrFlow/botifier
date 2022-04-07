@@ -2,11 +2,11 @@
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers.BotUserNameMentionInComment;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers.NewPostInSubreddit;
-using WD.Botifier.BotRegistry.Domain.RedditBots.Webhooks;
 using WD.Botifier.BotRegistry.Domain.SharedKernel.Bots;
 using WD.Botifier.SeedWork;
 using WD.Botifier.SharedKernel;
 using WD.Botifier.SharedKernel.Reddit.AppCredentials;
+using WD.Botifier.SharedKernel.Webhooks;
 
 namespace WD.Botifier.BotRegistry.Domain.RedditBots;
 

@@ -1,6 +1,6 @@
 ﻿using WD.Botifier.SeedWork;
 
-namespace WD.Botifier.BotRegistry.Domain.SharedKernel.Webhooks;
+namespace WD.Botifier.SharedKernel.Webhooks;
 
 public class WebhookName : StringValueBase
 {

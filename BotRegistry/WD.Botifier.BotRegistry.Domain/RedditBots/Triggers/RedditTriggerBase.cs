@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using WD.Botifier.BotRegistry.Domain.RedditBots.Webhooks;
+using WD.Botifier.SharedKernel.Webhooks;
 
 namespace WD.Botifier.BotRegistry.Domain.RedditBots.Triggers;
 

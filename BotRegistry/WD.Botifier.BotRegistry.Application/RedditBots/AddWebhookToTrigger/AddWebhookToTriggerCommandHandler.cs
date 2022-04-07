@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using WD.Botifier.BotRegistry.Domain.RedditBots;
-using WD.Botifier.BotRegistry.Domain.RedditBots.Webhooks;
+using WD.Botifier.SharedKernel.Webhooks;
 
 namespace WD.Botifier.BotRegistry.Application.RedditBots.AddWebhookToTrigger;
 
