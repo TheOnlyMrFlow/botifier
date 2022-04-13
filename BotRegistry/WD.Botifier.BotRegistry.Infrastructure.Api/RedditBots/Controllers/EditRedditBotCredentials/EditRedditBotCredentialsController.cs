@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 using WD.Botifier.BotRegistry.Application.RedditBots.EditRedditBotCredentials;
 using WD.Botifier.BotRegistry.Domain.RedditBots;
 using WD.Botifier.BotRegistry.Infrastructure.Api.RedditBots.Controllers.CreateRedditBot;
+using WD.Botifier.SharedKernel.Reddit;
 using WD.Botifier.SharedKernel.Reddit.AppCredentials;
 
 namespace WD.Botifier.BotRegistry.Infrastructure.Api.RedditBots.Controllers.EditRedditBotCredentials;
@@ -33,7 +34,8 @@ public class EditRedditBotCredentialsController : ControllerBase
             new RedditUserName(requestBody.Username),
             new RedditPassword(requestBody.Password),
             new RedditAppClientId(requestBody.ClientId),
-            new RedditAppClientSecret(requestBody.ClientSecret));
+            new RedditAppClientSecret(requestBody.ClientSecret),
+            new Uri(requestBody.RedirectUri));
 
         var result = await _commandHandler.HandleAsync(command);
 

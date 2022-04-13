@@ -1,18 +1,32 @@
 ﻿using System;
+using System.Reactive.Disposables;
+using System.Threading;
 using RedditSharp;
-using WD.Botifier.SharedKernel.Reddit.AppCredentials;
+using WD.Botifier.RedditBotRunner.Infra.RedditApIClient;
 using WD.Botifier.SharedKernel.Reddit.Comments;
 
 namespace WD.Botifier.RedditBotRunner.Infra.RedditApiClient.RedditWatcher;
 
 internal class UserNameMentionWatcher
 {
-    public IDisposable Watch(RedditAppCredentials credentials, Action<RedditComment> callback)
+    private readonly RedditSharpClient _redditSharpClient;
+
+    public UserNameMentionWatcher(Reddit redditSharpClient)
     {
-        return new RedditSharpClient(new BotWebAgent(credentials.UserName.Value, credentials.Password.Value, credentials.AppClientId.Value, credentials.AppClientSecret.Value, "google.fr"), true)
-            .User
+        _redditSharpClient = redditSharpClient;
+    }
+
+    public IDisposable Watch(Action<RedditComment> callback)
+    {
+        var mentionStream = _redditSharpClient.User
             .GetUsernameMentions()
-            .Stream()
-            .Subscribe(redditSharpComment => callback(RedditComment.FromRawJson(redditSharpComment.RawJson.ToString())));
+            .Stream();
+            
+        mentionStream.Subscribe(redditSharpComment => callback(redditSharpComment.ToDomainRedditComment()));
+        
+        var cancellationTokenSource = new CancellationTokenSource();
+        mentionStream.Enumerate(cancellationTokenSource.Token);
+        
+        return Disposable.Create(() => cancellationTokenSource.Cancel());
     }
 }

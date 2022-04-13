@@ -9,15 +9,27 @@ using WD.Botifier.SharedKernel.Reddit.Posts;
 
 namespace WD.Botifier.RedditBotRunner.Application.Ports;
 
-public interface IRedditWriter
+
+public interface IAuthlessRedditApi : IDisposable
 {
+    IDisposable WatchNewPostsInSubreddit(IEnumerable<SubredditName> subreddits, Action<RedditPost> callback);
+}
+
+public interface IAuthfulRedditApi : IDisposable
+{
+    IDisposable WatchUserNameMentions(Action<RedditComment> callback);
+    
     Task<object> ReplyToCommentAsync(ReplyToCommentIntent intent);
+    
     Task<object> ReplyToPostAsync(ReplyToPostIntent intent);
 }
 
-public interface IRedditWatcher
+public interface IAuthfulRedditApiFactory
 {
-    IDisposable WatchNewPostsInSubreddit(IEnumerable<SubredditName> subreddits, Action<RedditPost> callback);
+    IAuthfulRedditApi Create(RedditAppCredentials appCredentials);
+}
 
-    IDisposable WatchUserNameMentions(RedditAppCredentials appCredentials, Action<RedditComment> callback);
+public interface IAuthlessRedditApiFactory
+{
+    IAuthlessRedditApi Create();
 }

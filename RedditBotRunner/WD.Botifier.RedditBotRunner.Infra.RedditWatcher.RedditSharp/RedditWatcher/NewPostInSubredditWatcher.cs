@@ -16,9 +16,10 @@ internal class NewPostInSubredditWatcher
     private readonly Dictionary<SubredditName, CancellationTokenSource> _enumeratorsCancellationTokenSources = new ();
     private readonly Dictionary<SubredditName, IDisposable> _subredditObservers = new ();
 
-    public NewPostInSubredditWatcher()
+    public NewPostInSubredditWatcher(RedditSharpClient redditSharpClient)
     {
-        _redditSharpClient = new RedditSharpClient(new BotWebAgent("8bitfier", "fPrL^N%S3Lc02NC%", "UXyHK6OWWmkULQ", "WWXpXdd6LqaQ4de72ArpvLdoJEORLQ", "https://google.com"), true);
+        _redditSharpClient = redditSharpClient;
+        //_redditSharpClient = new RedditSharpClient(new BotWebAgent("8bitfier", "fPrL^N%S3Lc02NC%", "UXyHK6OWWmkULQ", "WWXpXdd6LqaQ4de72ArpvLdoJEORLQ", "https://google.com"), true);
     }
 
     public IDisposable Watch(IEnumerable<SubredditName> subreddits, Action<RedditPost> callback)

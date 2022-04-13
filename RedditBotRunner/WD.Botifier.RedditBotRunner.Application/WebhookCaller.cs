@@ -1,6 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 using RestSharp;
+using WD.Botifier.RedditBotRunner.Domain.Intents;
 using WD.Botifier.RedditBotRunner.Domain.Webhooks;
 using WD.Botifier.SharedKernel.Webhooks;
 
@@ -17,6 +19,6 @@ public class WebhookCaller
         request.AddBody(payload);
         var response = await restClient.ExecuteAsync(request);
         
-        return JsonConvert.DeserializeObject<WebhookResponse>(response.Content ?? "") ?? new WebhookResponse();
+        return JsonConvert.DeserializeObject<WebhookResponse>(response.Content ?? "") ?? new WebhookResponse(Array.Empty<ReplyToCommentIntent>(), Array.Empty<ReplyToPostIntent>());
     }
 }

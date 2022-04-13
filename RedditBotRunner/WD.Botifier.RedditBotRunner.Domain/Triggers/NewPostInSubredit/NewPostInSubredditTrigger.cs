@@ -2,7 +2,7 @@
 using WD.Botifier.SharedKernel.Reddit.Posts;
 using WD.Botifier.SharedKernel.Webhooks;
 
-namespace WD.Botifier.RedditBotRunner.Domain.Triggers;
+namespace WD.Botifier.RedditBotRunner.Domain.Triggers.NewPostInSubredit;
 
 public class NewPostInSubredditTrigger : TriggerBase
 {
@@ -15,16 +15,3 @@ public class NewPostInSubredditTrigger : TriggerBase
 
     public NewPostInSubredditTriggerMatch Match(RedditPost post) => new (this, post);
 }
-
-public class NewPostInSubredditTriggerMatch
-{
-    public NewPostInSubredditTriggerMatch(NewPostInSubredditTrigger trigger, RedditPost post)
-    {
-        Trigger = trigger;
-        Post = post;
-    }
-
-    public NewPostInSubredditTrigger Trigger { get; }
-    
-    public RedditPost Post { get; }
-} 

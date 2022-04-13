@@ -4,14 +4,18 @@ namespace WD.Botifier.SharedKernel.Reddit.Comments;
 
 public class RedditComment
 {
-    public static RedditComment FromRawJson(string rawJson)
+    public RedditComment( string rawJson, RedditCommentId id, RedditUserName author, RedditCommentContent content, DateTime postedAt)
     {
-        return new RedditComment();
+        RawJson = rawJson;
+        Id = id;
+        Author = author;
+        Content = content;
+        PostedAt = postedAt;
     }
     
-    public RedditCommentId Id { get; }
-    
     public string RawJson { get; set; }
+    
+    public RedditCommentId Id { get; }
     
     public RedditUserName Author { get; set; }
     

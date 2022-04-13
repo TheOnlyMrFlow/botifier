@@ -1,4 +1,5 @@
 ﻿using WD.Botifier.RedditBotRunner.Domain.Triggers;
+using WD.Botifier.RedditBotRunner.Domain.Triggers.NewPostInSubredit;
 
 namespace WD.Botifier.RedditBotRunner.Domain.Webhooks;
 

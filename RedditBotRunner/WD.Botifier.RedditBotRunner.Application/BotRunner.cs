@@ -1,69 +1,75 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Hosting;
 using WD.Botifier.RedditBotRunner.Application.Ports;
-using WD.Botifier.RedditBotRunner.Domain.Triggers;
-using WD.Botifier.SeedWork;
+using WD.Botifier.RedditBotRunner.Domain;
+using WD.Botifier.RedditBotRunner.Domain.Triggers.NewPostInSubredit;
+using WD.Botifier.RedditBotRunner.Domain.Triggers.UserNameMentionInComment;
+using WD.Botifier.RedditBotRunner.Domain.Webhooks;
 
 namespace WD.Botifier.RedditBotRunner.Application;
 
-public class BotRunner : BackgroundService
+public class BotRunner : IDisposable
 {
-    private readonly Dictionary<TriggerId, IDisposable> _subscriptions = new ();
-    private readonly IRedditWatcher _redditWatcher;
-    private readonly TriggerExecutor _triggerExecutor;
-    private readonly IBotRegistryClient _botRegistryClient;
-    //private readonly IIntegrationEventBus _integrationEventBus;
-    
-    protected override async Task ExecuteAsync(CancellationToken cancellationToken)
+    private readonly Bot _bot;
+    private readonly IAuthlessRedditApi _authlessRedditApi;
+    private readonly IAuthfulRedditApi _authfulRedditApi;
+    private readonly WebhookCaller _webhookCaller;
+    private readonly ICollection<IDisposable> _subscriptions = new List<IDisposable>();
+
+    public BotRunner(Bot bot, IAuthlessRedditApi authlessRedditApi, IAuthfulRedditApiFactory authfulRedditApiFactory, WebhookCaller webhookCaller)
     {
-        try
-        {
-
-            foreach (var trigger in _botRegistryClient.FetchAllTriggers())
-            {
-                if (trigger is NewPostInSubredditTrigger newPostInSubredditTrigger)
-                    AddTrigger(newPostInSubredditTrigger);
-
-                // if (trigger is UserNameMentionInCommentTrigger userNameMentionInCommentTrigger) 
-                //     AddTrigger(userNameMentionInCommentTrigger);
-
-                // subscribe to integrationeventbus to add / remove triggers
-            }
-        }
-        catch (Exception e)
-        {
-            
-        }
-    }
-
-    public override async Task StopAsync(CancellationToken cancellationToken)
-    {
-        foreach (var triggerId in _subscriptions.Keys) 
-            RemoveTrigger(triggerId);
+        _bot = bot;
+        _webhookCaller = webhookCaller;
+        _authlessRedditApi = authlessRedditApi;
+        _authfulRedditApi = authfulRedditApiFactory.Create(bot.Credentials);
     }
     
-    public BotRunner(TriggerExecutor triggerExecutor, IRedditWatcher redditWatcher, IBotRegistryClient botRegistryClient)
+    public void Run()
     {
-        _triggerExecutor = triggerExecutor;
-        _redditWatcher = redditWatcher;
-        _botRegistryClient = botRegistryClient;
-        //_integrationEventBus = integrationEventBus;
-    }
-
-    private void AddTrigger(NewPostInSubredditTrigger trigger)
-    {
-        var subscription = _redditWatcher.WatchNewPostsInSubreddit(trigger.Subreddits, post => _triggerExecutor.ExecuteAsync(trigger.Match(post)).GetAwaiter().GetResult());
+        foreach (var trigger in _bot.NewPostInSubredditTriggers)
+        {
+            var subscription = _authlessRedditApi.WatchNewPostsInSubreddit(trigger.Subreddits, post => OnTriggerMatchAsync(trigger.Match(post)).GetAwaiter().GetResult());
+            _subscriptions.Add(subscription);
+        }
         
-        _subscriptions.Add(trigger.Id, subscription);
+        foreach (var trigger in _bot.UserNameMentionInCommentTriggers)
+        {
+            var subscription = _authfulRedditApi.WatchUserNameMentions(post => OnTriggerMatchAsync(trigger.Match(post)).GetAwaiter().GetResult());
+            _subscriptions.Add(subscription);
+        }
+    }
+    
+    private async Task OnTriggerMatchAsync(NewPostInSubredditTriggerMatch newPostInSubredditTriggerMatch)
+    {
+        foreach (var webhook in newPostInSubredditTriggerMatch.Trigger.Webhooks)
+        {
+            var webhookResponse = await _webhookCaller.CallWebhookAsync(webhook, new NewPostInSubredditWebhookPayload(newPostInSubredditTriggerMatch));
+            await ProcessWebhookResponseAsync(webhookResponse);
+        }
+    }
+    
+    private async Task OnTriggerMatchAsync(UserNameMentionInCommentTriggerMatch userNameMentionInCommentTriggerMatch)
+    {
+        foreach (var webhook in userNameMentionInCommentTriggerMatch.Trigger.Webhooks)
+        {
+            var webhookResponse = await _webhookCaller.CallWebhookAsync(webhook, new UserNameMentionInCommentWebhookPayload(userNameMentionInCommentTriggerMatch));
+            await ProcessWebhookResponseAsync(webhookResponse);
+        }
     }
 
-    private void RemoveTrigger(TriggerId triggerId)
+    private async Task ProcessWebhookResponseAsync(WebhookResponse webhookResponse)
     {
-        _subscriptions[triggerId].Dispose();
-        _subscriptions.Remove(triggerId);
+        foreach (var intent in webhookResponse.ReplyToCommentIntents) 
+            await _authfulRedditApi.ReplyToCommentAsync(intent);
+        
+        foreach (var intent in webhookResponse.ReplyToPostIntents) 
+            await _authfulRedditApi.ReplyToPostAsync(intent);
+    }
+
+    public void Dispose()
+    {
+        foreach (var subscription in _subscriptions)
+            subscription.Dispose();
     }
 }

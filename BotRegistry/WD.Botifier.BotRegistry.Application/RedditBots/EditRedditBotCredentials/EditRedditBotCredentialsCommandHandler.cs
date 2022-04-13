@@ -21,7 +21,7 @@ public class EditRedditBotCredentialsCommandHandler
         if (bot is null)
             return new EditRedditBotCredentialsCommandBotNotFoundResult();
 
-        var credentials = new RedditAppCredentials(command.UserName, command.Password, command.AppClientId, command.AppClientSecret);
+        var credentials = new RedditAppCredentials(command.UserName, command.Password, command.AppClientId, command.AppClientSecret, command.AppRedirectUri);
         bot.SetCredentials(credentials);
 
         await _redditBotRepository.UpdateAsync(bot);
