@@ -1,11 +1,8 @@
-﻿namespace WD.Botifier.SharedKernel.Reddit.Posts;
+﻿using WD.Botifier.SeedWork;
 
-public class RedditPostContent
+namespace WD.Botifier.SharedKernel.Reddit.Posts;
+
+public class RedditPostContent : StringValueBase
 {
-    public RedditPostContent(string value)
-    {
-        Value = value;
-    }
-
-    public string Value { get; }
+    public RedditPostContent(string value) : base(value) { }
 }

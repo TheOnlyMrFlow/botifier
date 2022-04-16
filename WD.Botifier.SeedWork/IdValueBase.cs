@@ -15,8 +15,13 @@ public abstract class IdValueBase : IIdValue, IEquatable<IdValueBase>
     public override int GetHashCode() 
         => Value.GetHashCode();
 
-    public bool Equals(IdValueBase? other) 
-        => Value == other?.Value;
+    public bool Equals(IdValueBase? other)
+    {
+        if (other == null || GetType() != other.GetType())
+            return false;
+        
+        return Value == other?.Value;
+    }
 
     public static bool operator ==(IdValueBase? obj1, IdValueBase? obj2) 
         => obj1?.Equals(obj2) ?? Equals(obj2, null);

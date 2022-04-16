@@ -18,17 +18,17 @@ public class User : Entity, IAggregateRoot
     }
 
     public static User NewUser(Email email, EncryptedPassword encryptedPassword) 
-        => new User(UserId.NewUserId(), email, encryptedPassword, false, DateTime.UtcNow, null);
+        => new (UserId.NewUserId(), email, encryptedPassword, false, DateTime.UtcNow, null);
 
-    public UserId Id { get; private set; }
+    public UserId Id { get; }
     
-    public Email Email { get; private set; }
+    public Email Email { get; }
     
-    public EncryptedPassword EncryptedPassword { get; set; }
+    public EncryptedPassword EncryptedPassword { get; }
     
-    public bool IsEmailVerified { get; private set; }
+    public bool IsEmailVerified { get; }
     
-    public DateTime CreatedAt { get; private set; }
+    public DateTime CreatedAt { get; }
     
     public DateTime? LastLoginAt { get; private set; }
 

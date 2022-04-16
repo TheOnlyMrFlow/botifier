@@ -1,8 +1,9 @@
 ﻿using System;
+using WD.Botifier.SeedWork;
 
 namespace WD.Botifier.SharedKernel.Reddit.AppCredentials;
 
-public class RedditAppCredentials
+public class RedditAppCredentials : ValueObject
 {
     public RedditAppCredentials(RedditUserName userName, RedditPassword password, RedditAppClientId appClientId, RedditAppClientSecret appClientSecret, Uri redirectUri)
     {

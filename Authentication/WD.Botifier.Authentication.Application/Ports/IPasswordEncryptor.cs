@@ -8,5 +8,5 @@ public interface IPasswordEncryptor
 {
     EncryptedPassword Encrypt(ClearPassword clearPassword);
 
-    bool ValidatePasswordAgainstEncrypted(ClearPassword clearPassword, EncryptedPassword encryptedPassword);
+    bool ValidateClearPasswordAgainstEncrypted(ClearPassword clearPassword, EncryptedPassword encryptedPassword);
 }

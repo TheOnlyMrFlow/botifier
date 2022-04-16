@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
 using System.Security.Cryptography;
+using WD.Botifier.SeedWork;
 
 namespace WD.Botifier.Authentication.Domain.Users.EncryptedPasswords;
 
-public class B64Salt
+public class B64Salt : ValueObject
 {
     public B64Salt(string value)
     {

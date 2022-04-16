@@ -1,6 +1,8 @@
-﻿namespace WD.Botifier.Authentication.Domain.Users.EncryptedPasswords;
+﻿using WD.Botifier.SeedWork;
 
-public class EncryptedPassword
+namespace WD.Botifier.Authentication.Domain.Users.EncryptedPasswords;
+
+public class EncryptedPassword : ValueObject
 {
     public EncryptedPassword(B64Salt salt, string hash)
     {

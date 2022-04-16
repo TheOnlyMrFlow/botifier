@@ -1,11 +1,10 @@
-﻿namespace WD.Botifier.SharedKernel.Reddit.Comments;
+﻿using WD.Botifier.SeedWork;
 
-public class RedditCommentContent
+namespace WD.Botifier.SharedKernel.Reddit.Comments;
+
+public class RedditCommentContent : StringValueBase
 {
-    public RedditCommentContent(string value)
+    public RedditCommentContent(string value) : base(value)
     {
-        Value = value;
     }
-
-    public string Value { get; }
 }

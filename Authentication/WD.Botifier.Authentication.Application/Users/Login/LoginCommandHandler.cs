@@ -24,7 +24,7 @@ public class LoginCommandHandler
         if (user is null)
             return new Error();
 
-        if (!_passwordEncryptor.ValidatePasswordAgainstEncrypted(command.Password, user.EncryptedPassword))
+        if (!_passwordEncryptor.ValidateClearPasswordAgainstEncrypted(command.Password, user.EncryptedPassword))
             return new Error();
 
         var accessToken = _accessTokenManager.Build(user);

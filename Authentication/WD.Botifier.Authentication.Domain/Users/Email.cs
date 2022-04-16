@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using WD.Botifier.SeedWork;
 
 namespace WD.Botifier.Authentication.Domain.Users;
 
-public class Email : IEquatable<Email>
+public class Email : ValueObject
 {
     public const int EmailMaxLength = 255;
             
@@ -20,16 +21,6 @@ public class Email : IEquatable<Email>
     }
 
     public string Value { get; }
-
-    public bool Equals(Email? other) => Value == other?.Value;
-
-    public override bool Equals(object? obj) => obj is Email o && Equals(o);
-
-    public override int GetHashCode() => Value.GetHashCode();
-
-    public static bool operator ==(Email? left, Email? right) => (left is null && right is null) || (left is not null && left.Equals(right));
-
-    public static bool operator !=(Email left, Email right) => !(left == right);
 
     public override string ToString() => Value;
 

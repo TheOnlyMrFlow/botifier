@@ -16,7 +16,7 @@ public class PasswordEncryptor : IPasswordEncryptor
         return new EncryptedPassword(salt, hash);
     }
     
-    public bool ValidatePasswordAgainstEncrypted(ClearPassword clearPassword, EncryptedPassword encryptedPassword)
+    public bool ValidateClearPasswordAgainstEncrypted(ClearPassword clearPassword, EncryptedPassword encryptedPassword)
     {
         var hash = GenerateHash(clearPassword, encryptedPassword.Salt);
         return hash == encryptedPassword.Hash;

@@ -19,7 +19,7 @@ public class SignupCommandHandler
     
     public async Task<SignupCommandResult> HandleAsync(SignupCommand command)
     {
-        if (await _userRepository.EmaiLExistsAsync(command.Email))
+        if (await _userRepository.EmailExistsAsync(command.Email))
             return new SignupCommandEMailAlreadyTakenResult();
 
         var encryptedPassword = _passwordEncryptor.Encrypt(command.Password);

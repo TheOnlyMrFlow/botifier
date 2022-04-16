@@ -1,8 +1,9 @@
 ﻿using System;
+using WD.Botifier.SeedWork;
 
 namespace WD.Botifier.SharedKernel.Webhooks;
 
-public class Webhook
+public class Webhook : ValueObject
 {
     public Webhook(WebhookName name, Uri url)
     {

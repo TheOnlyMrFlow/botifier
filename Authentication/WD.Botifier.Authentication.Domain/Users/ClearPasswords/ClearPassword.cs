@@ -4,7 +4,7 @@ using WD.Botifier.SeedWork;
 
 namespace WD.Botifier.Authentication.Domain.Users.ClearPasswords;
 
-public class ClearPassword : IEquatable<ClearPassword>
+public class ClearPassword : ValueObject
 {
     public ClearPassword(string? value)
     {
@@ -25,16 +25,6 @@ public class ClearPassword : IEquatable<ClearPassword>
     }
 
     public string Value { get; }
-
-    public bool Equals(ClearPassword? other) => Value == other?.Value;
-
-    public override bool Equals(object? obj) => obj is ClearPassword o && Equals(o);
-
-    public override int GetHashCode() => HashCode.Combine(Value);
-
-    public static bool operator ==(ClearPassword? left, ClearPassword? right) => left is not null && left.Equals(right);
-
-    public static bool operator !=(ClearPassword left, ClearPassword right) => !(left == right);
 
     public override string ToString() => Value;
 }

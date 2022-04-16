@@ -1,11 +1,8 @@
-﻿namespace WD.Botifier.SharedKernel.Reddit.AppCredentials;
+﻿using WD.Botifier.SeedWork;
 
-public class RedditAppClientSecret
+namespace WD.Botifier.SharedKernel.Reddit.AppCredentials;
+
+public class RedditAppClientSecret : StringValueBase
 {
-    public string Value { get; }
-    
-    public RedditAppClientSecret(string value)
-    {
-        Value = value;
-    }
+    public RedditAppClientSecret(string value) : base(value) { }
 }

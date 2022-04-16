@@ -34,13 +34,13 @@ public abstract class ValueObject : IEquatable<ValueObject>
     private IEnumerable<PropertyInfo> GetProperties() 
         => _properties ??= GetType()
             .GetProperties(BindingFlags.Instance | BindingFlags.Public)
-            .Where(p => p.GetCustomAttribute(typeof(IgnoreMemberAttribute)) == null)
+            .Where(p => p.GetCustomAttribute(typeof(ValueObjectEqualityIgnoreMemberAttribute)) == null)
             .ToList();
 
     private IEnumerable<FieldInfo> GetFields()
         => _fields ??= GetType()
             .GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
-            .Where(p => p.GetCustomAttribute(typeof(IgnoreMemberAttribute)) == null)
+            .Where(p => p.GetCustomAttribute(typeof(ValueObjectEqualityIgnoreMemberAttribute)) == null)
             .ToList();
 
     public override int GetHashCode()

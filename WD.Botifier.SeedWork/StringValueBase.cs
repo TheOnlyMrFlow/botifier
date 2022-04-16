@@ -17,8 +17,13 @@ public abstract class StringValueBase : IStringValue, IEquatable<StringValueBase
     public override int GetHashCode() 
         => Value.GetHashCode();
 
-    public bool Equals(StringValueBase? other) 
-        => Value == other?.Value;
+    public bool Equals(StringValueBase? other)
+    {
+        if (other == null || GetType() != other.GetType())
+            return false;
+        
+        return Value == other?.Value;
+    }
 
     public static bool operator ==(StringValueBase? obj1, StringValueBase? obj2) 
         => obj1?.Equals(obj2) ?? Equals(obj2, null);

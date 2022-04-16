@@ -46,6 +46,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.SharedInfra.Int
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.RedditBotRunner.Infra.BotRegistryClient", "RedditBotRunner\WD.Botifier.RedditBotRunner.Infra.BotRegistryClient\WD.Botifier.RedditBotRunner.Infra.BotRegistryClient.csproj", "{A58838C7-2D23-4A78-93A7-366405DF14CD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FB5DAC1C-9C04-450F-B92A-62C479BA147B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.SeedWork.Test", "Tests\WD.Botifier.SeedWork.Test\WD.Botifier.SeedWork.Test.csproj", "{D845E9E3-A9D3-4C25-9D39-5B8DF70C40DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -128,6 +132,10 @@ Global
 		{A58838C7-2D23-4A78-93A7-366405DF14CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A58838C7-2D23-4A78-93A7-366405DF14CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A58838C7-2D23-4A78-93A7-366405DF14CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D845E9E3-A9D3-4C25-9D39-5B8DF70C40DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D845E9E3-A9D3-4C25-9D39-5B8DF70C40DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D845E9E3-A9D3-4C25-9D39-5B8DF70C40DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D845E9E3-A9D3-4C25-9D39-5B8DF70C40DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{5DF39791-8059-4D26-B24A-9BD0EB037C92} = {F5FB91E6-7AC7-4937-9385-CF8010AA04BF}
@@ -145,5 +153,6 @@ Global
 		{E861DE67-5EC5-4E43-BD3A-DC8DEF6FED35} = {DE02F10B-7122-4761-B728-D59AE948FBC9}
 		{2E0786AB-07E6-4267-A04D-2A1B22A39DCE} = {DE02F10B-7122-4761-B728-D59AE948FBC9}
 		{A58838C7-2D23-4A78-93A7-366405DF14CD} = {DE02F10B-7122-4761-B728-D59AE948FBC9}
+		{D845E9E3-A9D3-4C25-9D39-5B8DF70C40DA} = {FB5DAC1C-9C04-450F-B92A-62C479BA147B}
 	EndGlobalSection
 EndGlobal

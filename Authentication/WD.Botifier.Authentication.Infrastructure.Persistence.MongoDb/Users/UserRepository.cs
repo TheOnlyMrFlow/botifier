@@ -27,7 +27,7 @@ public class UserRepository : IUserRepository
         return _userCollection.ReplaceOneAsync(u => u.Email == user.Email.Value, new UserDocument(user));
     }
 
-    public async Task<bool> EmaiLExistsAsync(Email email)
+    public async Task<bool> EmailExistsAsync(Email email)
         => await _userCollection.Find(u => u.Email == email.Value).AnyAsync();
 
     public async Task<User?> FindUserByEmail(Email email)

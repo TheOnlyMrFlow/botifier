@@ -1,11 +1,8 @@
-﻿namespace WD.Botifier.Authentication.Domain.Users;
+﻿using WD.Botifier.SeedWork;
 
-public class AccessToken
+namespace WD.Botifier.Authentication.Domain.Users;
+
+public class AccessToken : StringValueBase
 {
-    public AccessToken(string value)
-    {
-        Value = value;
-    }
-    
-    public string Value { get; set; }
+    public AccessToken(string value) : base(value) { }
 }
