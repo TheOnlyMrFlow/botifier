@@ -35,7 +35,7 @@ public class EditRedditBotCredentialsController : ControllerBase
             new RedditPassword(requestBody.Password),
             new RedditAppClientId(requestBody.ClientId),
             new RedditAppClientSecret(requestBody.ClientSecret),
-            new Uri(requestBody.RedirectUri));
+            new RedditAppRedirectUri(requestBody.RedirectUri));
 
         var result = await _commandHandler.HandleAsync(command);
 

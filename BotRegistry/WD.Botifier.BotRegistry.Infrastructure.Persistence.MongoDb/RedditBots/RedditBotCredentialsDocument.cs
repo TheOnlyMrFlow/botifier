@@ -27,6 +27,6 @@ public class RedditBotCredentialsDocument
             new RedditPassword(Password),
             new RedditAppClientId(ClientId),
             new RedditAppClientSecret(ClientSecret),
-            new Uri(RedirectUri ?? string.Empty)
+            new RedditAppRedirectUri(RedirectUri ?? string.Empty)
         );
 }

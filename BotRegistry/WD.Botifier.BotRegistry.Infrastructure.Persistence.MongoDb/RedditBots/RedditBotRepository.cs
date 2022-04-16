@@ -34,7 +34,7 @@ public class RedditBotRepository : IRedditBotRepository
         => _redditBotCollection.ReplaceOneAsync(b => b.Id == bot.Id.Value, new RedditBotDocument(bot));
 
     public async Task<RedditBot?> GetAsync(UserId ownerId, RedditBotId botId)
-        => (await _redditBotCollection.Find(b => b.OwnerId == ownerId.Value && b.Id == botId.Value).FirstOrDefaultAsync()).ToRedditBot();
+        => (await _redditBotCollection.Find(b => b.OwnerId == ownerId.Value && b.Id == botId.Value).FirstOrDefaultAsync())?.ToRedditBot();
 
     public IEnumerable<RedditBot> Search(IRedditBotRepository.SearchRedditBotOptions options) 
         => _redditBotCollection.Find(b => b.OwnerId == options.OwnerId.Value).ToEnumerable().Select(b => b.ToRedditBot());

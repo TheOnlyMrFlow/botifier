@@ -11,7 +11,7 @@ public class RedditApiClientFactory : IAuthfulRedditApiFactory, IAuthlessRedditA
 
     public RedditApiClientFactory(RedditApiClientFactoryConfiguration config)
     {
-        _authlessAppCredentials =new RedditAppCredentials(new RedditUserName(config.UserName), new RedditPassword(config.Password), new RedditAppClientId(config.ClientId), new RedditAppClientSecret(config.ClientSecret), new Uri(config.RedirectUri));
+        _authlessAppCredentials =new RedditAppCredentials(new RedditUserName(config.UserName), new RedditPassword(config.Password), new RedditAppClientId(config.ClientId), new RedditAppClientSecret(config.ClientSecret), new RedditAppRedirectUri(config.RedirectUri));
     }
 
     IAuthfulRedditApi IAuthfulRedditApiFactory.Create(RedditAppCredentials appCredentials)

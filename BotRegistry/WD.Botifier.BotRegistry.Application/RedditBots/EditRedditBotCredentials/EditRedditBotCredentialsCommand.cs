@@ -8,7 +8,7 @@ namespace WD.Botifier.BotRegistry.Application.RedditBots.EditRedditBotCredential
 
 public class EditRedditBotCredentialsCommand : AuthenticatedCommandBase
 {
-    public EditRedditBotCredentialsCommand(UserId userId, RedditBotId botId, RedditUserName userName, RedditPassword password, RedditAppClientId appClientId, RedditAppClientSecret appClientSecret, Uri appRedirectUri) : base(userId)
+    public EditRedditBotCredentialsCommand(UserId userId, RedditBotId botId, RedditUserName userName, RedditPassword password, RedditAppClientId appClientId, RedditAppClientSecret appClientSecret, RedditAppRedirectUri appRedirectUri) : base(userId)
     {
         BotId = botId;
         UserName = userName;
@@ -23,5 +23,5 @@ public class EditRedditBotCredentialsCommand : AuthenticatedCommandBase
     public RedditPassword Password { get; }
     public RedditAppClientId AppClientId { get; }
     public RedditAppClientSecret AppClientSecret { get; }
-    public Uri AppRedirectUri { get; }
+    public RedditAppRedirectUri AppRedirectUri { get; }
 }

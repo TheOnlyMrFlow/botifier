@@ -1,0 +1,8 @@
+﻿<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Botifier.All" type="CompoundRunConfigurationType">
+    <toRun name="AuthenticationApi" type="LaunchSettings" />
+    <toRun name="BotRegistryApi" type="LaunchSettings" />
+    <toRun name="WD.Botifier.RedditBotRunner.Worker.Worker" type="DotNetProject" />
+    <method v="2" />
+  </configuration>
+</component>

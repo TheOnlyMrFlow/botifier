@@ -37,7 +37,7 @@ public class BotRegistryClient : IBotRegistryClient
         {
             new Bot(
                 Guid.NewGuid(),
-                new RedditAppCredentials(new RedditUserName("8bitfier"), new RedditPassword("fPrL^N%S3Lc02NC%"), new RedditAppClientId("UXyHK6OWWmkULQ"), new RedditAppClientSecret("WWXpXdd6LqaQ4de72ArpvLdoJEORLQ"), new Uri("https://google.com")),
+                new RedditAppCredentials(new RedditUserName("8bitfier"), new RedditPassword("fPrL^N%S3Lc02NC%"), new RedditAppClientId("UXyHK6OWWmkULQ"), new RedditAppClientSecret("WWXpXdd6LqaQ4de72ArpvLdoJEORLQ"), new RedditAppRedirectUri("https://google.com")),
                 Array.Empty<NewPostInSubredditTrigger>(),//new[] {newPostTrigger},
                 new[] {userNameMentionTrigger})
         };
