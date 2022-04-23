@@ -1,0 +1,31 @@
+version: '3.4'
+
+services:
+
+  authentication-api:
+    image: ${REGISTRY:-botifier}/authentication.api:${PLATFORM:-linux}-${TAG:-latest}
+    build:
+      context: .
+      dockerfile: Services/Authentication/WD.Botifier.Authentication.Infrastructure.Api/Dockerfile
+    ports:
+      - "7040:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+
+  botregistry-api:
+    image: ${REGISTRY:-botifier}/botregistry.api:${PLATFORM:-linux}-${TAG:-latest}
+    build:
+      context: .
+      dockerfile: Services/BotRegistry/WD.Botifier.BotRegistry.Infrastructure.Api/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+    ports:
+      - "7257:80"
+    depends_on:
+      - authentication-api
+
+#  redditbotrunner-api:
+#    image: ${REGISTRY:-botifier}/redditbotrunner.worker:${PLATFORM:-linux}-${TAG:-latest}
+#    build:
+#      context: .
+#      dockerfile: Services/RedditBotRunner/WD.Botifier.RedditBotRunner.Worker/Dockerfile

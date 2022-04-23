@@ -3,12 +3,11 @@
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
         <Nullable>enable</Nullable>
-        <RootNamespace>WD.Botifier.RedditBotRunner.Infra.RedditApiClient</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\WD.Botifier.SharedKernel\WD.Botifier.SharedKernel.csproj" />
-      <ProjectReference Include="..\WD.Botifier.RedditBotRunner.Application\WD.Botifier.RedditBotRunner.Application.csproj" />
+      <ProjectReference Include="..\..\..\WD.Botifier.SharedKernel\WD.Botifier.SharedKernel.csproj" />
+      <ProjectReference Include="..\..\RedditBotRunner\WD.Botifier.RedditBotRunner.Application\WD.Botifier.RedditBotRunner.Application.csproj" />
     </ItemGroup>
 
     <ItemGroup>

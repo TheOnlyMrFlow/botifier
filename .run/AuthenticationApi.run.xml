@@ -1,6 +1,6 @@
 ﻿<component name="ProjectRunConfigurationManager">
   <configuration default="false" name="AuthenticationApi" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
-    <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Authentication/WD.Botifier.Authentication.Infrastructure.Api/WD.Botifier.Authentication.Infrastructure.Api.csproj" />
+    <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/Services/Authentication/WD.Botifier.Authentication.Infrastructure.Api/WD.Botifier.Authentication.Infrastructure.Api.csproj" />
     <option name="LAUNCH_PROFILE_TFM" value="net6.0" />
     <option name="LAUNCH_PROFILE_NAME" value="WD.Botifier.Authentication.Infrastructure.Api" />
     <option name="USE_EXTERNAL_CONSOLE" value="0" />

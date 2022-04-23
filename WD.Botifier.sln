@@ -1,54 +1,56 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.BotRegistry.Domain", "BotRegistry\WD.Botifier.BotRegistry.Domain\WD.Botifier.BotRegistry.Domain.csproj", "{7805A256-2B94-4BE1-84DF-03FEECA83DFE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.BotRegistry.Domain", "src\Services\BotRegistry\WD.Botifier.BotRegistry.Domain\WD.Botifier.BotRegistry.Domain.csproj", "{7805A256-2B94-4BE1-84DF-03FEECA83DFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.BotRegistry.Application", "BotRegistry\WD.Botifier.BotRegistry.Application\WD.Botifier.BotRegistry.Application.csproj", "{5DF39791-8059-4D26-B24A-9BD0EB037C92}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.BotRegistry.Application", "src\Services\BotRegistry\WD.Botifier.BotRegistry.Application\WD.Botifier.BotRegistry.Application.csproj", "{5DF39791-8059-4D26-B24A-9BD0EB037C92}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BotRegistry", "BotRegistry", "{F5FB91E6-7AC7-4937-9385-CF8010AA04BF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BotRegistry", "src\Services\BotRegistry", "{F5FB91E6-7AC7-4937-9385-CF8010AA04BF}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Authentication", "Authentication", "{74ED2A0D-6E0C-45FE-9F75-A26DA4EF417E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Authentication", "src\Services\Authentication", "{74ED2A0D-6E0C-45FE-9F75-A26DA4EF417E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RedditBotRunner", "RedditBotRunner", "{DE02F10B-7122-4761-B728-D59AE948FBC9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RedditBotRunner", "src\Services\RedditBotRunner", "{DE02F10B-7122-4761-B728-D59AE948FBC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.SharedKernel", "WD.Botifier.SharedKernel\WD.Botifier.SharedKernel.csproj", "{95F08558-7F1C-4C65-B076-06BD5245D91A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.SharedKernel", "src\WD.Botifier.SharedKernel\WD.Botifier.SharedKernel.csproj", "{95F08558-7F1C-4C65-B076-06BD5245D91A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.SeedWork", "WD.Botifier.SeedWork\WD.Botifier.SeedWork.csproj", "{1787C890-970A-4EB0-A4F8-9F83349E723C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.SeedWork", "src\WD.Botifier.SeedWork\WD.Botifier.SeedWork.csproj", "{1787C890-970A-4EB0-A4F8-9F83349E723C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notifications", "Notifications", "{EBD43C35-C012-4A19-BEA4-3D87146FCB55}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notifications", "src\Services\Notifications", "{EBD43C35-C012-4A19-BEA4-3D87146FCB55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.Authentication.Domain", "Authentication\WD.Botifier.Authentication.Domain\WD.Botifier.Authentication.Domain.csproj", "{2A3113F5-0DC4-45D3-B690-8641DF5FA0B3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.Authentication.Domain", "src\Services\Authentication\WD.Botifier.Authentication.Domain\WD.Botifier.Authentication.Domain.csproj", "{2A3113F5-0DC4-45D3-B690-8641DF5FA0B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.Authentication.Application", "Authentication\WD.Botifier.Authentication.Application\WD.Botifier.Authentication.Application.csproj", "{8EBA2DB5-4B04-4184-9DC7-DE6D27D7A9A2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.Authentication.Application", "src\Services\Authentication\WD.Botifier.Authentication.Application\WD.Botifier.Authentication.Application.csproj", "{8EBA2DB5-4B04-4184-9DC7-DE6D27D7A9A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.Authentication.Infrastructure.Jwt", "Authentication\WD.Botifier.Authentication.Infrastructure.Jwt\WD.Botifier.Authentication.Infrastructure.Jwt.csproj", "{23D0310C-B1CD-4935-9F6A-CAA60938473B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.Authentication.Infrastructure.Jwt", "src\Services\Authentication\WD.Botifier.Authentication.Infrastructure.Jwt\WD.Botifier.Authentication.Infrastructure.Jwt.csproj", "{23D0310C-B1CD-4935-9F6A-CAA60938473B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.Authentication.Infrastructure.Api", "Authentication\WD.Botifier.Authentication.Infrastructure.Api\WD.Botifier.Authentication.Infrastructure.Api.csproj", "{48CC625B-5C9E-4BF0-BC68-AAD5BE1887EC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.Authentication.Infrastructure.Api", "src\Services\Authentication\WD.Botifier.Authentication.Infrastructure.Api\WD.Botifier.Authentication.Infrastructure.Api.csproj", "{48CC625B-5C9E-4BF0-BC68-AAD5BE1887EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.Authentication.Infrastructure.Persistence.MongoDb", "Authentication\WD.Botifier.Authentication.Infrastructure.Persistence.MongoDb\WD.Botifier.Authentication.Infrastructure.Persistence.MongoDb.csproj", "{CEB0723C-86FA-4DD4-BDA3-638398E761DF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.Authentication.Infrastructure.Persistence.MongoDb", "src\Services\Authentication\WD.Botifier.Authentication.Infrastructure.Persistence.MongoDb\WD.Botifier.Authentication.Infrastructure.Persistence.MongoDb.csproj", "{CEB0723C-86FA-4DD4-BDA3-638398E761DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.Authentication.Infrastructure.PasswordEncryptor", "Authentication\WD.Botifier.Authentication.Infrastructure.PasswordEncryptor\WD.Botifier.Authentication.Infrastructure.PasswordEncryptor.csproj", "{AD16ABB5-7310-41C1-B997-95E726552D77}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.Authentication.Infrastructure.PasswordEncryptor", "src\Services\Authentication\WD.Botifier.Authentication.Infrastructure.PasswordEncryptor\WD.Botifier.Authentication.Infrastructure.PasswordEncryptor.csproj", "{AD16ABB5-7310-41C1-B997-95E726552D77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.BotRegistry.Infrastructure.Api", "BotRegistry\WD.Botifier.BotRegistry.Infrastructure.Api\WD.Botifier.BotRegistry.Infrastructure.Api.csproj", "{D30BCE6B-09DF-48CA-BCE9-C0A0341FD97E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.BotRegistry.Infrastructure.Api", "src\Services\BotRegistry\WD.Botifier.BotRegistry.Infrastructure.Api\WD.Botifier.BotRegistry.Infrastructure.Api.csproj", "{D30BCE6B-09DF-48CA-BCE9-C0A0341FD97E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb", "BotRegistry\WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb\WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.csproj", "{A239EDDF-923D-4461-945B-5FFB83656C36}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb", "src\Services\BotRegistry\WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb\WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.csproj", "{A239EDDF-923D-4461-945B-5FFB83656C36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox", "Sandbox\Sandbox.csproj", "{E59AB380-2903-4358-97AD-E46E1731DACF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox", "src\Sandbox\Sandbox.csproj", "{E59AB380-2903-4358-97AD-E46E1731DACF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.RedditBotRunner.Domain", "RedditBotRunner\WD.Botifier.RedditBotRunner.Domain\WD.Botifier.RedditBotRunner.Domain.csproj", "{738BD6C1-6A64-4C7B-AED6-FA655C5FECEA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.RedditBotRunner.Domain", "src\Services\RedditBotRunner\WD.Botifier.RedditBotRunner.Domain\WD.Botifier.RedditBotRunner.Domain.csproj", "{738BD6C1-6A64-4C7B-AED6-FA655C5FECEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.RedditBotRunner.Application", "RedditBotRunner\WD.Botifier.RedditBotRunner.Application\WD.Botifier.RedditBotRunner.Application.csproj", "{89644CA9-782D-4796-972A-E513B8631190}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.RedditBotRunner.Application", "src\Services\RedditBotRunner\WD.Botifier.RedditBotRunner.Application\WD.Botifier.RedditBotRunner.Application.csproj", "{89644CA9-782D-4796-972A-E513B8631190}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.RedditBotRunner.Infra.RedditWatcher.RedditSharp", "RedditBotRunner\WD.Botifier.RedditBotRunner.Infra.RedditWatcher.RedditSharp\WD.Botifier.RedditBotRunner.Infra.RedditWatcher.RedditSharp.csproj", "{E861DE67-5EC5-4E43-BD3A-DC8DEF6FED35}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.RedditBotRunner.Infra.RedditWatcher.RedditSharp", "src\Services\RedditBotRunner\WD.Botifier.RedditBotRunner.Infra.RedditWatcher.RedditSharp\WD.Botifier.RedditBotRunner.Infra.RedditWatcher.RedditSharp.csproj", "{E861DE67-5EC5-4E43-BD3A-DC8DEF6FED35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.RedditBotRunner.Worker", "RedditBotRunner\WD.Botifier.RedditBotRunner.Worker\WD.Botifier.RedditBotRunner.Worker.csproj", "{2E0786AB-07E6-4267-A04D-2A1B22A39DCE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.RedditBotRunner.Worker", "src\Services\RedditBotRunner\WD.Botifier.RedditBotRunner.Worker\WD.Botifier.RedditBotRunner.Worker.csproj", "{2E0786AB-07E6-4267-A04D-2A1B22A39DCE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.SharedInfra.IntegrationEvents", "WD.Botifier.SharedInfra.IntegrationEvents\WD.Botifier.SharedInfra.IntegrationEvents.csproj", "{93A7670D-1CD7-4B57-B97A-1D9F7FA579ED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.SharedInfra.IntegrationEvents", "src\WD.Botifier.SharedInfra.IntegrationEvents\WD.Botifier.SharedInfra.IntegrationEvents.csproj", "{93A7670D-1CD7-4B57-B97A-1D9F7FA579ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.RedditBotRunner.Infra.BotRegistryClient", "RedditBotRunner\WD.Botifier.RedditBotRunner.Infra.BotRegistryClient\WD.Botifier.RedditBotRunner.Infra.BotRegistryClient.csproj", "{A58838C7-2D23-4A78-93A7-366405DF14CD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.RedditBotRunner.Infra.BotRegistryClient", "src\Services\RedditBotRunner\WD.Botifier.RedditBotRunner.Infra.BotRegistryClient\WD.Botifier.RedditBotRunner.Infra.BotRegistryClient.csproj", "{A58838C7-2D23-4A78-93A7-366405DF14CD}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FB5DAC1C-9C04-450F-B92A-62C479BA147B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "src\Tests", "{FB5DAC1C-9C04-450F-B92A-62C479BA147B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.SeedWork.Test", "Tests\WD.Botifier.SeedWork.Test\WD.Botifier.SeedWork.Test.csproj", "{D845E9E3-A9D3-4C25-9D39-5B8DF70C40DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.SeedWork.Test", "src\Tests\WD.Botifier.SeedWork.Test\WD.Botifier.SeedWork.Test.csproj", "{D845E9E3-A9D3-4C25-9D39-5B8DF70C40DA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "src\Services", "{5EB1EC2C-AA1C-4E31-AB45-1ADA2F23C98D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -154,5 +156,9 @@ Global
 		{2E0786AB-07E6-4267-A04D-2A1B22A39DCE} = {DE02F10B-7122-4761-B728-D59AE948FBC9}
 		{A58838C7-2D23-4A78-93A7-366405DF14CD} = {DE02F10B-7122-4761-B728-D59AE948FBC9}
 		{D845E9E3-A9D3-4C25-9D39-5B8DF70C40DA} = {FB5DAC1C-9C04-450F-B92A-62C479BA147B}
+		{DE02F10B-7122-4761-B728-D59AE948FBC9} = {5EB1EC2C-AA1C-4E31-AB45-1ADA2F23C98D}
+		{EBD43C35-C012-4A19-BEA4-3D87146FCB55} = {5EB1EC2C-AA1C-4E31-AB45-1ADA2F23C98D}
+		{F5FB91E6-7AC7-4937-9385-CF8010AA04BF} = {5EB1EC2C-AA1C-4E31-AB45-1ADA2F23C98D}
+		{74ED2A0D-6E0C-45FE-9F75-A26DA4EF417E} = {5EB1EC2C-AA1C-4E31-AB45-1ADA2F23C98D}
 	EndGlobalSection
 EndGlobal

@@ -6,8 +6,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\WD.Botifier.SeedWork\WD.Botifier.SeedWork.csproj" />
-      <ProjectReference Include="..\..\WD.Botifier.SharedKernel\WD.Botifier.SharedKernel.csproj" />
+      <ProjectReference Include="..\..\..\WD.Botifier.SeedWork\WD.Botifier.SeedWork.csproj" />
+      <ProjectReference Include="..\..\..\WD.Botifier.SharedKernel\WD.Botifier.SharedKernel.csproj" />
     </ItemGroup>
 
 </Project>
