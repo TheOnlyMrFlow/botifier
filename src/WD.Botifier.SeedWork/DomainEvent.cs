@@ -2,9 +2,9 @@
 
 namespace WD.Botifier.SeedWork;
 
-public class DomainEvent : IDomainEvent
+public abstract class DomainEvent : IDomainEvent
 {
-    public DomainEvent()
+    protected DomainEvent()
     {
         OccurredOn = DateTime.Now;
     }

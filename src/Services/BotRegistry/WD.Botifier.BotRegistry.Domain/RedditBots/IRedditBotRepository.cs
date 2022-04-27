@@ -8,11 +8,11 @@ namespace WD.Botifier.BotRegistry.Domain.RedditBots;
 
 public interface IRedditBotRepository
 {
-    Task<bool> BotNameExistsForOwner(UserId ownerId, BotName botName);
+    Task<bool> BotNameExistsForOwnerAsync(UserId ownerId, BotName botName);
 
     Task AddAsync(RedditBot redditBot);
 
-    Task UpdateAsync(RedditBot bot);
+    Task UpdateAsync(RedditBot redditBot);
 
     Task<RedditBot?> GetAsync(UserId ownerId, RedditBotId botId);
 

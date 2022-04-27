@@ -1,4 +1,5 @@
 ﻿using System;
+using WD.Botifier.BotRegistry.Domain.RedditBots.Events;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers.BotUserNameMentionInComment;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers.NewPostInSubreddit;
@@ -41,15 +42,14 @@ public class RedditBot : Entity, IAggregateRoot, IBot<RedditBotId>
     private readonly RedditBotTriggerCollection _triggers;
     public RedditBotTriggerReadonlyCollection Triggers => _triggers.AsReadonly();
 
-    public static RedditBot NewBot(UserId ownerId, BotName name) 
-        => new(
-            RedditBotId.NewBotId(),
-            ownerId, 
-            name, 
-            RedditAppCredentials.EmptyCredentials(),
-            RedditBotTriggerCollection.NewRedditBotTriggerCollection(), 
-            DateTime.UtcNow);
-    
+    public static RedditBot NewBot(UserId ownerId, BotName name)
+    {
+        var bot = new RedditBot(RedditBotId.NewBotId(), ownerId, name, RedditAppCredentials.EmptyCredentials(), RedditBotTriggerCollection.NewRedditBotTriggerCollection(), DateTime.UtcNow);
+        bot.AddDomainEvent(new RedditBotCreatedDomainEvent(bot));
+        
+        return bot;
+    }
+
     public void SetCredentials(RedditAppCredentials credentials) 
         => Credentials = credentials;
 

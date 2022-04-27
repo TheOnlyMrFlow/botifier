@@ -1,6 +1,11 @@
 version: '3.4'
 
 services:
+  
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    ports:
+      - "15672:15672"
 
   authentication-api:
     image: ${REGISTRY:-botifier}/authentication.api:${PLATFORM:-linux}-${TAG:-latest}
@@ -11,6 +16,8 @@ services:
       - "7040:80"
     environment:
       - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+    depends_on:
+      - rabbitmq
 
   botregistry-api:
     image: ${REGISTRY:-botifier}/botregistry.api:${PLATFORM:-linux}-${TAG:-latest}
@@ -23,6 +30,7 @@ services:
       - "7257:80"
     depends_on:
       - authentication-api
+      - rabbitmq
 
 #  redditbotrunner-api:
 #    image: ${REGISTRY:-botifier}/redditbotrunner.worker:${PLATFORM:-linux}-${TAG:-latest}

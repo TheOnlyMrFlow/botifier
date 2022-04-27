@@ -11,6 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\..\WD.Botifier.Infra.IntegrationEventBus.RabbitMQ\WD.Botifier.Infra.IntegrationEventBus.RabbitMQ.csproj" />
       <ProjectReference Include="..\WD.Botifier.BotRegistry.Domain\WD.Botifier.BotRegistry.Domain.csproj" />
     </ItemGroup>
 
