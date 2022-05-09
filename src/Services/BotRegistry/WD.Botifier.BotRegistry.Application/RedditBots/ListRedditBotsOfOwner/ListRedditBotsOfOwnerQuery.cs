@@ -5,8 +5,10 @@ namespace WD.Botifier.BotRegistry.Application.RedditBots.ListRedditBotsOfOwner;
 
 public class ListRedditBotsOfOwnerQuery : AuthenticatedCommandBase
 {
-    public ListRedditBotsOfOwnerQuery(UserId userId) : base(userId)
+    public UserId OwnerId { get; }
+
+    public ListRedditBotsOfOwnerQuery(UserId userId, UserId ownerId) : base(userId)
     {
-        
+        OwnerId = ownerId;
     }
 }

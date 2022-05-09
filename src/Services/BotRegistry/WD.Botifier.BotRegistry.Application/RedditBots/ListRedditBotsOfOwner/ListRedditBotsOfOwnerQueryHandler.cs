@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using OneOf;
 using WD.Botifier.BotRegistry.Domain.RedditBots;
 
 namespace WD.Botifier.BotRegistry.Application.RedditBots.ListRedditBotsOfOwner;
@@ -13,10 +14,13 @@ public class ListRedditBotsOfOwnerQueryHandler
         _redditBotRepository = redditBotRepository;
     }
 
-    public IEnumerable<ListRedditBotsOfOwnerQueryResultBotDto> Handle(ListRedditBotsOfOwnerQuery query)
+    public ListRedditBotsOfOwnerQueryResult Handle(ListRedditBotsOfOwnerQuery query)
     {
+        if (query.UserId != query.OwnerId){}
+            return new ListRedditBotsOfOwnerQueryForbiddenResult();
+        
         var bots = _redditBotRepository.Search(new IRedditBotRepository.SearchRedditBotOptions(query.UserId));
 
-        return bots.Select(b => new ListRedditBotsOfOwnerQueryResultBotDto(b));
+        return new ListRedditBotsOfOwnerQuerySuccessResult(bots.Select(b => new ListRedditBotsOfOwnerQueryResultBotDto(b)));
     }
 }

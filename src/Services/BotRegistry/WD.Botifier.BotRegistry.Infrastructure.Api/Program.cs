@@ -9,11 +9,11 @@ using WD.Botifier.BotRegistry.Application.RedditBots.AddNewPostInSubredditTrigge
 using WD.Botifier.BotRegistry.Application.RedditBots.AddWebhookToTrigger;
 using WD.Botifier.BotRegistry.Application.RedditBots.CreateRedditBot;
 using WD.Botifier.BotRegistry.Application.RedditBots.EditRedditBotCredentials;
+using WD.Botifier.BotRegistry.Application.RedditBots.GetRedditBotDetails;
 using WD.Botifier.BotRegistry.Application.RedditBots.ListRedditBotsOfOwner;
 using WD.Botifier.BotRegistry.Domain.RedditBots;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Events;
 using WD.Botifier.BotRegistry.Infrastructure.Api;
-using WD.Botifier.BotRegistry.Infrastructure.Api.RedditBots.Controllers.AddWebhookToTrigger;
 using WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb;
 using WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots;
 using WD.Botifier.Infra.IntegrationEventBus.RabbitMQ;
@@ -53,6 +53,7 @@ services.AddTransient<PublishIntegrationEventWhenBotIsCreatedDomainEventHandler>
 services.AddTransient<CreateRedditBotCommandHandler>();
 services.AddTransient<EditRedditBotCredentialsCommandHandler>();
 services.AddTransient<ListRedditBotsOfOwnerQueryHandler>();
+services.AddTransient<GetRedditBotDetailsQueryHandler>();
 services.AddTransient<AddNewPostInSubredditTriggerCommandHandler>();
 services.AddTransient<AddBotUserNameMentionInCommentTriggerCommandHandler>();
 services.AddTransient<AddWebhookToTriggerCommandHandler>();

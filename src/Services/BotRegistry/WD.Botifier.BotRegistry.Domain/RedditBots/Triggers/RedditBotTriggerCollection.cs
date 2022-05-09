@@ -55,12 +55,12 @@ public class RedditBotTriggerCollection
 
 public class RedditBotTriggerReadonlyCollection
 {
-    public RedditBotTriggerReadonlyCollection(IReadOnlyCollection<BotUserNameMentionInCommentTrigger> botUserNameMentionInCommentTrigger, IReadOnlyCollection<NewPostInSubredditTrigger> newPostInSubredditTrigger)
+    public RedditBotTriggerReadonlyCollection(IReadOnlyCollection<BotUserNameMentionInCommentTrigger> botUserNameMentionInCommentTriggers, IReadOnlyCollection<NewPostInSubredditTrigger> newPostInSubredditTriggers)
     {
-        BotUserNameMentionInCommentTrigger = botUserNameMentionInCommentTrigger;
-        NewPostInSubredditTrigger = newPostInSubredditTrigger;
+        BotUserNameMentionInCommentTriggers = botUserNameMentionInCommentTriggers;
+        NewPostInSubredditTriggers = newPostInSubredditTriggers;
     }
 
-    public IReadOnlyCollection<BotUserNameMentionInCommentTrigger> BotUserNameMentionInCommentTrigger;
-    public IReadOnlyCollection<NewPostInSubredditTrigger> NewPostInSubredditTrigger;
+    public readonly IReadOnlyCollection<BotUserNameMentionInCommentTrigger> BotUserNameMentionInCommentTriggers;
+    public readonly IReadOnlyCollection<NewPostInSubredditTrigger> NewPostInSubredditTriggers;
 }

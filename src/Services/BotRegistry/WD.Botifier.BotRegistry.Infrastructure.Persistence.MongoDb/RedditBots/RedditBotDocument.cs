@@ -23,8 +23,8 @@ public class RedditBotDocument
         Name = redditBot.Name.Value;
         Credentials = new RedditBotCredentialsDocument(redditBot.Credentials);
         Triggers =
-            redditBot.Triggers.NewPostInSubredditTrigger.Select(t => new NewPostInSubredditTriggerDocument(t))
-                .Concat<RedditBotTriggerDocumentBase>(redditBot.Triggers.BotUserNameMentionInCommentTrigger.Select(t => new BotUserNameMentionInCommentTriggerDocument(t)))
+            redditBot.Triggers.NewPostInSubredditTriggers.Select(t => new NewPostInSubredditTriggerDocument(t))
+                .Concat<RedditBotTriggerDocumentBase>(redditBot.Triggers.BotUserNameMentionInCommentTriggers.Select(t => new BotUserNameMentionInCommentTriggerDocument(t)))
                 .ToList();
         CreatedAt = redditBot.CreatedAt;
     }
