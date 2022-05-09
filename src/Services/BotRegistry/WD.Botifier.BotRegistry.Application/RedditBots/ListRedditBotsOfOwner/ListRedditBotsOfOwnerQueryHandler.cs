@@ -16,7 +16,7 @@ public class ListRedditBotsOfOwnerQueryHandler
 
     public ListRedditBotsOfOwnerQueryResult Handle(ListRedditBotsOfOwnerQuery query)
     {
-        if (query.UserId != query.OwnerId){}
+        if (query.UserId != query.OwnerId)
             return new ListRedditBotsOfOwnerQueryForbiddenResult();
         
         var bots = _redditBotRepository.Search(new IRedditBotRepository.SearchRedditBotOptions(query.UserId));

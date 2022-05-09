@@ -32,7 +32,7 @@ public class CreateRedditBotController : ControllerBase
         var result = await _commandHandler.HandleAsync(command);
 
         return result.Match<IActionResult>(
-            success => Created(string.Empty, null),
+            success => Created(string.Empty, new { id = success.RedditBotId.Value}),
             duplicateNameError => Conflict(new ProblemDetails { Title = "Conflict.", Detail = "This user already has a reddit bot with this name."})
             );
     }
