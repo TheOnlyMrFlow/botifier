@@ -42,7 +42,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.RedditBotRunner
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.RedditBotRunner.Worker", "src\Services\RedditBotRunner\WD.Botifier.RedditBotRunner.Worker\WD.Botifier.RedditBotRunner.Worker.csproj", "{2E0786AB-07E6-4267-A04D-2A1B22A39DCE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.SharedInfra.IntegrationEvents", "src\WD.Botifier.SharedInfra.IntegrationEvents\WD.Botifier.SharedInfra.IntegrationEvents.csproj", "{93A7670D-1CD7-4B57-B97A-1D9F7FA579ED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.Infra.IntegrationEventBus.RabbitMQ", "src\WD.Botifier.Infra.IntegrationEventBus.RabbitMQ\WD.Botifier.Infra.IntegrationEventBus.RabbitMQ.csproj", "{93A7670D-1CD7-4B57-B97A-1D9F7FA579ED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WD.Botifier.RedditBotRunner.Infra.BotRegistryClient", "src\Services\RedditBotRunner\WD.Botifier.RedditBotRunner.Infra.BotRegistryClient\WD.Botifier.RedditBotRunner.Infra.BotRegistryClient.csproj", "{A58838C7-2D23-4A78-93A7-366405DF14CD}"
 EndProject

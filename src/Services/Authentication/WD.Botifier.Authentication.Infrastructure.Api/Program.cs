@@ -63,7 +63,7 @@ var app = builder.Build();
 
 app.UseMiddleware<BusinessRuleValidationExceptionHandlingMiddleware>();
 
-app.UseCors(policyBuilder => policyBuilder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+app.UseCors(policyBuilder => policyBuilder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().WithExposedHeaders("*"));
 
 app.UseHttpsRedirection();
 
