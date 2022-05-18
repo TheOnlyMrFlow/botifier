@@ -11,6 +11,7 @@ using WD.Botifier.BotRegistry.Application.RedditBots.CreateRedditBot;
 using WD.Botifier.BotRegistry.Application.RedditBots.EditRedditBotCredentials;
 using WD.Botifier.BotRegistry.Application.RedditBots.GetRedditBotDetails;
 using WD.Botifier.BotRegistry.Application.RedditBots.ListRedditBotsOfOwner;
+using WD.Botifier.BotRegistry.Application.RedditBots.RemoveWebhookFromTrigger;
 using WD.Botifier.BotRegistry.Domain.RedditBots;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Events;
 using WD.Botifier.BotRegistry.Infrastructure.Api;
@@ -57,6 +58,7 @@ services.AddTransient<GetRedditBotDetailsQueryHandler>();
 services.AddTransient<AddNewPostInSubredditTriggerCommandHandler>();
 services.AddTransient<AddBotUserNameMentionInCommentTriggerCommandHandler>();
 services.AddTransient<AddWebhookToTriggerCommandHandler>();
+services.AddTransient<RemoveWebhookFromTriggerCommandHandler>();
 
 var app = builder.Build();
 

@@ -7,11 +7,11 @@ using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers.BotUserNameMentionInComment;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers.NewPostInSubreddit;
 using WD.Botifier.BotRegistry.Domain.SharedKernel.Bots;
-using WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Triggers;
+using WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Document.Latest.Triggers;
 using WD.Botifier.SharedKernel;
 using WD.Botifier.SharedKernel.Reddit.AppCredentials;
 
-namespace WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots;
+namespace WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Document.Latest;
 
 [BsonIgnoreExtraElements]
 public class RedditBotDocument

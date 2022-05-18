@@ -3,10 +3,10 @@ using System.Linq;
 using MongoDB.Bson.Serialization.Attributes;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers.NewPostInSubreddit;
-using WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Triggers.Webhooks;
+using WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Document.Latest.Triggers.Webhooks;
 using WD.Botifier.SharedKernel.Reddit;
 
-namespace WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Triggers;
+namespace WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Document.Latest.Triggers;
 
 [BsonDiscriminator(TriggerType)]
 public class NewPostInSubredditTriggerDocument : RedditBotTriggerDocumentBase<NewPostInSubredditTriggerSettingsDocument>

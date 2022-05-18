@@ -2,7 +2,7 @@
 using System.Linq;
 using WD.Botifier.SharedKernel.Webhooks;
 
-namespace WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Triggers.Webhooks;
+namespace WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Document.Latest.Triggers.Webhooks;
 
 public static class WebhookDocumentCollectionExtensions
 {

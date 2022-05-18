@@ -68,7 +68,15 @@ public class RedditBot : Entity, IAggregateRoot, IBot<RedditBotId>
         _triggers.AddTrigger(trigger);
         return trigger;
     }
+
+    public void RemoveTrigger(RedditTriggerId triggerId)
+    {
+        _triggers.RemoveTrigger(triggerId);
+    }
     
     public void AddWebhookToTrigger(RedditTriggerId triggerId, Webhook webhook) 
         => _triggers.AddWebhookToTrigger(triggerId, webhook);
+    
+    public void RemoveWebhookFromTrigger(RedditTriggerId triggerId, WebhookName webhookName) 
+        => _triggers.RemoveWebhookFromTrigger(triggerId, webhookName);
 }

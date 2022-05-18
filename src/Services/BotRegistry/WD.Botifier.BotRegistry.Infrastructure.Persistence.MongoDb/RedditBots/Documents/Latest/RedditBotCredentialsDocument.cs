@@ -1,8 +1,7 @@
-﻿using System;
-using WD.Botifier.SharedKernel.Reddit;
+﻿using WD.Botifier.SharedKernel.Reddit;
 using WD.Botifier.SharedKernel.Reddit.AppCredentials;
 
-namespace WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots;
+namespace WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Document.Latest;
 
 public class RedditBotCredentialsDocument
 {

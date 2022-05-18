@@ -45,6 +45,25 @@ public class RedditBotTriggerCollection
         _newPostInSubredditTriggers.Add(trigger);
         AddTriggerToDictionary(trigger);
     }
+    
+    public void RemoveTrigger(RedditTriggerId triggerId)
+    {
+        if (!_triggersById.TryGetValue(triggerId.Value, out var triggerToRemove))
+            return;
+
+        switch (triggerToRemove)
+        {
+            case NewPostInSubredditTrigger t:
+                _newPostInSubredditTriggers.Remove(t);
+                break;
+            case BotUserNameMentionInCommentTrigger t:
+                _botUserNameMentionInCommentTriggers.Remove(t);
+                break;
+            default: throw new NotImplementedException();
+        }
+
+        _triggersById.Remove(triggerId.Value);
+    }
 
     public void AddWebhookToTrigger(RedditTriggerId triggerId, Webhook webhook)
     {
@@ -52,6 +71,14 @@ public class RedditBotTriggerCollection
             throw new TriggerDoesNotExistException();
 
         trigger.AddWebhook(webhook);
+    }
+    
+    public void RemoveWebhookFromTrigger(RedditTriggerId triggerId, WebhookName webhookName)
+    {
+        if (!_triggersById.TryGetValue(triggerId.Value, out var trigger))
+            throw new TriggerDoesNotExistException();
+
+        trigger.RemoveWebhook(webhookName);
     }
     
     public RedditBotTriggerReadonlyCollection AsReadonly() 

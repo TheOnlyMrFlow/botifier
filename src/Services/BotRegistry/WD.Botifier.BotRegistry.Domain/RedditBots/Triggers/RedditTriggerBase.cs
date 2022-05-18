@@ -15,6 +15,8 @@ public interface IRedditTrigger
     IReadOnlyCollection<Webhook> Webhooks { get; } 
     
     void AddWebhook(Webhook webhook);
+    
+    void RemoveWebhook(WebhookName webhookName);
 }
 
 public abstract class RedditTriggerBase<TSettings> : IRedditTrigger where TSettings : IRedditTriggerSettings
@@ -41,5 +43,12 @@ public abstract class RedditTriggerBase<TSettings> : IRedditTrigger where TSetti
         // todo: warning system if 2 webhooks have the same URL
 
         _webhooks.Add(webhook);
+    }
+    
+    public void RemoveWebhook(WebhookName webhookName)
+    {
+        var webhookToRemove = _webhooks.FirstOrDefault(wh => wh.Name == webhookName);
+        if (webhookToRemove is not null) 
+            _webhooks.Remove(webhookToRemove);
     }
 }
