@@ -38,7 +38,9 @@ public class AddwebhookToTriggerController : ControllerBase
 
         return result.Match<IActionResult>(
             success => Created(string.Empty, null),
-            botNotFoundError => NotFound(new ProblemDetails { Title = "Not found.", Detail = "Bot was not found."})
+            botNotFoundError => NotFound(new ProblemDetails { Title = "Not found.", Detail = "Bot was not found."}),
+            triggerNotFound =>  NotFound(new ProblemDetails { Title = "Not found.", Detail = "Trigger was not found."}),
+            webhookNameAlreadyExists =>  Conflict(new ProblemDetails { Title = "Conflict.", Detail = "Webhook name already exists for this trigger."})
         );
     }
 }

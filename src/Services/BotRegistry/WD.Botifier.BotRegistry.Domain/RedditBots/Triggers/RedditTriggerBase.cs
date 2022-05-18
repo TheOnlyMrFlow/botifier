@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using OneOf;
+using OneOf.Types;
 using WD.Botifier.SharedKernel.Webhooks;
 
 namespace WD.Botifier.BotRegistry.Domain.RedditBots.Triggers;
@@ -33,9 +35,11 @@ public abstract class RedditTriggerBase<TSettings> : IRedditTrigger where TSetti
     
     public void AddWebhook(Webhook webhook)
     {
-        if (_webhooks.Any(wh => wh.Url == webhook.Url))
-            throw new ArgumentException($"Webhook with url {webhook.Url} already exists"); // todo: better exception, or even better: allow to add multiple webhooks with same url but show a warning
+        if (_webhooks.Any(wh => wh.Name == webhook.Name))
+            throw new TriggerAlreadyHasAWebhookWithThisNameException();
         
+        // todo: warning system if 2 webhooks have the same URL
+
         _webhooks.Add(webhook);
     }
 }

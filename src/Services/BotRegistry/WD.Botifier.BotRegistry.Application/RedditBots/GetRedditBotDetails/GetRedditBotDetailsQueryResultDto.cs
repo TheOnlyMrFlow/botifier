@@ -41,9 +41,11 @@ public class GetRedditBotDetailsQueryResultDto
         {
             public BotUserNameMentionInCommentTriggerDto(BotUserNameMentionInCommentTrigger trigger)
             {
+                Id = trigger.Id.Value.ToString(); 
                 Webhooks = trigger.Webhooks.Select(wh => new WebhookDto(wh));
             }
             
+            public string Id { get; }
             public IEnumerable<WebhookDto> Webhooks { get; }
         }
         
@@ -51,10 +53,12 @@ public class GetRedditBotDetailsQueryResultDto
         {
             public NewPostInSubredditTriggerDto(NewPostInSubredditTrigger trigger)
             {
+                Id = trigger.Id.Value.ToString(); 
                 Webhooks = trigger.Webhooks.Select(wh => new WebhookDto(wh));
                 Settings = new SettingsDto(trigger.Settings);
             }
             
+            public string Id { get; }
             public IEnumerable<WebhookDto> Webhooks { get; }
             public SettingsDto Settings { get; }
 

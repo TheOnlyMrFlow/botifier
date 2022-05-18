@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using OneOf;
+using OneOf.Types;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers.BotUserNameMentionInComment;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers.NewPostInSubreddit;
+using WD.Botifier.SeedWork;
 using WD.Botifier.SharedKernel.Webhooks;
 
 namespace WD.Botifier.BotRegistry.Domain.RedditBots.Triggers;
@@ -42,10 +45,12 @@ public class RedditBotTriggerCollection
         _newPostInSubredditTriggers.Add(trigger);
         AddTriggerToDictionary(trigger);
     }
-    
+
     public void AddWebhookToTrigger(RedditTriggerId triggerId, Webhook webhook)
     {
-        var trigger = _triggersById[triggerId.Value]; // todo error handling if not exists
+        if (!_triggersById.TryGetValue(triggerId.Value, out var trigger))
+            throw new TriggerDoesNotExistException();
+
         trigger.AddWebhook(webhook);
     }
     

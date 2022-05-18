@@ -1,4 +1,6 @@
 ﻿using System;
+using OneOf;
+using OneOf.Types;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Events;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers.BotUserNameMentionInComment;

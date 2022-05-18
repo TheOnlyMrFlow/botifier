@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using WD.Botifier.BotRegistry.Domain.RedditBots;
 using WD.Botifier.SharedKernel.Webhooks;
 
@@ -19,10 +20,19 @@ public class AddWebhookToTriggerCommandHandler
         if (bot is null)
             return new AddWebhookToTriggerCommandBotNotFoundResult();
 
-        bot.AddWebhookToTrigger(command.TriggerId, new Webhook(command.WebhookName, command.WebhookUrl));
-
-        await _redditBotRepository.UpdateAsync(bot);
-        
-        return new AddWebhookToTriggerCommandSuccessResult();
+        try
+        {
+            bot.AddWebhookToTrigger(command.TriggerId, new Webhook(command.WebhookName, command.WebhookUrl));
+            await _redditBotRepository.UpdateAsync(bot);
+            return new AddWebhookToTriggerCommandSuccessResult();
+        }
+        catch (TriggerAlreadyHasAWebhookWithThisNameException e)
+        {
+            return new AddWebhookToTriggerWebhookNameAlreadyExistsResult();
+        }
+        catch (TriggerDoesNotExistException e)
+        {
+            return new AddWebhookToTriggerTriggerNotFoundResult();
+        }
     }
 }

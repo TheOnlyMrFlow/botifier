@@ -22,5 +22,4 @@ public class AddWebhookToTriggerCommand : IAuthenticatedCommand
     public RedditTriggerId TriggerId { get; }
     public WebhookName WebhookName { get; }
     public Uri WebhookUrl { get; }
-    
 }
