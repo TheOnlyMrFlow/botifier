@@ -22,7 +22,7 @@ public class AddWebhookToTriggerCommandHandler
 
         try
         {
-            bot.AddWebhookToTrigger(command.TriggerId, new Webhook(command.WebhookName, command.WebhookUrl));
+            bot.AddWebhookToTrigger(command.TriggerId, Webhook.NewWebhook(command.WebhookName, command.WebhookUrl));
             await _redditBotRepository.UpdateAsync(bot);
             return new AddWebhookToTriggerCommandSuccessResult();
         }

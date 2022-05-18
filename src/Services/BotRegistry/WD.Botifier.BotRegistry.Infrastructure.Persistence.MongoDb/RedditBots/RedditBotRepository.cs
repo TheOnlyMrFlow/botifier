@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using MongoDB.Driver;
 using WD.Botifier.BotRegistry.Domain.RedditBots;
 using WD.Botifier.BotRegistry.Domain.SharedKernel.Bots;
+using WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Documents;
 using WD.Botifier.SeedWork;
 using WD.Botifier.SharedKernel;
 

@@ -8,6 +8,7 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["WD.Botifier.SeedWork/WD.Botifier.SeedWork.csproj", "WD.Botifier.SeedWork/WD.Botifier.SeedWork.csproj"]
 COPY ["WD.Botifier.SharedKernel/WD.Botifier.SharedKernel.csproj", "WD.Botifier.SharedKernel/WD.Botifier.SharedKernel.csproj"]
+COPY ["WD.Botifier.Infra.Persistence.MongoDbSeedWork/WD.Botifier.Infra.Persistence.MongoDbSeedWork.csproj", "WD.Botifier.Infra.Persistence.MongoDbSeedWork/WD.Botifier.Infra.Persistence.MongoDbSeedWork.csproj"]
 COPY ["Services/Authentication/WD.Botifier.Authentication.Domain/WD.Botifier.Authentication.Domain.csproj", "Services/Authentication/WD.Botifier.Authentication.Domain/WD.Botifier.Authentication.Domain.csproj"]
 COPY ["Services/Authentication/WD.Botifier.Authentication.Application/WD.Botifier.Authentication.Application.csproj", "Services/Authentication/WD.Botifier.Authentication.Application/WD.Botifier.Authentication.Application.csproj"]
 COPY ["Services/Authentication/WD.Botifier.Authentication.Infrastructure.Jwt/WD.Botifier.Authentication.Infrastructure.Jwt.csproj", "Services/Authentication/WD.Botifier.Authentication.Infrastructure.Jwt/WD.Botifier.Authentication.Infrastructure.Jwt.csproj"]

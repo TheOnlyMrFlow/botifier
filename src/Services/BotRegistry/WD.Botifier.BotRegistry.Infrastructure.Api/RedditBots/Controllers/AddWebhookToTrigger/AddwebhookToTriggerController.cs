@@ -18,10 +18,10 @@ namespace WD.Botifier.BotRegistry.Infrastructure.Api.RedditBots.Controllers.AddW
 [ApiController]
 public class AddwebhookToTriggerController : ControllerBase
 {
-    private readonly ILogger<AddBotUserNameMentionInCommentTriggerController> _logger;
+    private readonly ILogger<AddwebhookToTriggerController> _logger;
     private readonly AddWebhookToTriggerCommandHandler _addWebhookToTriggerCommandHandler;
 
-    public AddwebhookToTriggerController(ILogger<AddBotUserNameMentionInCommentTriggerController> logger, AddWebhookToTriggerCommandHandler addWebhookToTriggerCommandHandler)
+    public AddwebhookToTriggerController(ILogger<AddwebhookToTriggerController> logger, AddWebhookToTriggerCommandHandler addWebhookToTriggerCommandHandler)
     {
         _logger = logger;
         _addWebhookToTriggerCommandHandler = addWebhookToTriggerCommandHandler;

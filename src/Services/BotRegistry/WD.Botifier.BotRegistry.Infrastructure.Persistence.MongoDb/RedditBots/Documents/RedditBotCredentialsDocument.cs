@@ -1,8 +1,10 @@
-﻿using WD.Botifier.SharedKernel.Reddit;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using WD.Botifier.SharedKernel.Reddit;
 using WD.Botifier.SharedKernel.Reddit.AppCredentials;
 
-namespace WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Document.Latest;
+namespace WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Documents;
 
+[BsonIgnoreExtraElements]
 public class RedditBotCredentialsDocument
 {
     public RedditBotCredentialsDocument(RedditAppCredentials redditAppCredentials)

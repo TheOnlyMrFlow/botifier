@@ -11,6 +11,8 @@ namespace WD.Botifier.BotRegistry.Domain.RedditBots.Triggers;
 public interface IRedditTrigger
 {
     RedditTriggerId Id { get; }
+    
+    RedditTriggerName Name { get; }
 
     IReadOnlyCollection<Webhook> Webhooks { get; } 
     
@@ -21,14 +23,17 @@ public interface IRedditTrigger
 
 public abstract class RedditTriggerBase<TSettings> : IRedditTrigger where TSettings : IRedditTriggerSettings
 {
-    protected RedditTriggerBase( RedditTriggerId id, TSettings settings, IEnumerable<Webhook> webhooks)
+    protected RedditTriggerBase(RedditTriggerId id, RedditTriggerName name, TSettings settings, IEnumerable<Webhook> webhooks)
     {
+        Id = id;
+        Name = name;
         Settings = settings;
         _webhooks = new List<Webhook>(webhooks);
-        Id = id;
     }
     
     public RedditTriggerId Id { get; }
+    
+    public RedditTriggerName Name { get; }
     
     public TSettings Settings { get; }
 

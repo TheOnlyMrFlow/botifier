@@ -28,4 +28,7 @@ public abstract class IdValueBase : IIdValue, IEquatable<IdValueBase>
 
     public static bool operator !=(IdValueBase x, IdValueBase y)
         => !(x == y);
+
+    public override string ToString()
+        => Value.ToString();
 }

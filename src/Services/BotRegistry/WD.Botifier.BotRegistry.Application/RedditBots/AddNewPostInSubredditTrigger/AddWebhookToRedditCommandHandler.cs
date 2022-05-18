@@ -20,7 +20,7 @@ public class AddNewPostInSubredditTriggerCommandHandler
             return new AddNewPostInSubredditTriggerCommandBotNotFoundResult();
 
         var triggerSettings = new NewPostInSubredditTriggerSettings(command.SubredditNames);
-        bot.AddNewTrigger(triggerSettings);
+        bot.AddNewTrigger(command.TriggerName, triggerSettings);
 
         await _redditBotRepository.UpdateAsync(bot);
         

@@ -5,6 +5,9 @@ namespace WD.Botifier.BotRegistry.Infrastructure.Api.RedditBots.Controllers.AddN
 
 public class AddNewPostInSubredditTriggerHttpRequestBody
 {
+    [Required]
+    public string Name { get; set; }
+    
     [MinLength(1)]
     public IEnumerable<string> SubredditNames { get; set; }
 }

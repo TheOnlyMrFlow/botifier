@@ -10,6 +10,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\..\WD.Botifier.Infra.Persistence.MongoDbSeedWork\WD.Botifier.Infra.Persistence.MongoDbSeedWork.csproj" />
       <ProjectReference Include="..\WD.Botifier.BotRegistry.Domain\WD.Botifier.BotRegistry.Domain.csproj" />
     </ItemGroup>
 

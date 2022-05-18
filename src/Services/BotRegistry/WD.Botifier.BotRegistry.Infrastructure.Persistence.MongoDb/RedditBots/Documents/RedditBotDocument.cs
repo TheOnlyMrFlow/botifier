@@ -7,11 +7,11 @@ using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers.BotUserNameMentionInComment;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers.NewPostInSubreddit;
 using WD.Botifier.BotRegistry.Domain.SharedKernel.Bots;
-using WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Document.Latest.Triggers;
+using WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Documents.Triggers;
 using WD.Botifier.SharedKernel;
 using WD.Botifier.SharedKernel.Reddit.AppCredentials;
 
-namespace WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Document.Latest;
+namespace WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Documents;
 
 [BsonIgnoreExtraElements]
 public class RedditBotDocument
@@ -29,7 +29,7 @@ public class RedditBotDocument
         CreatedAt = redditBot.CreatedAt;
     }
 
-    public int SchemaVersion { get; set; } = 3;
+    public int SchemaVersion { get; set; } = 4;
     
     [BsonId]
     public Guid Id { get; set; }

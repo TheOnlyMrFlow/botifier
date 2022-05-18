@@ -30,4 +30,7 @@ public abstract class StringValueBase : IStringValue, IEquatable<StringValueBase
 
     public static bool operator !=(StringValueBase x, StringValueBase y)
         => !(x == y);
+
+    public override string ToString() 
+        => Value;
 }

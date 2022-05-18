@@ -8,6 +8,7 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["WD.Botifier.SeedWork/WD.Botifier.SeedWork.csproj", "WD.Botifier.SeedWork/WD.Botifier.SeedWork.csproj"]
 COPY ["WD.Botifier.SharedKernel/WD.Botifier.SharedKernel.csproj", "WD.Botifier.SharedKernel/WD.Botifier.SharedKernel.csproj"]
+COPY ["WD.Botifier.Infra.Persistence.MongoDbSeedWork/WD.Botifier.Infra.Persistence.MongoDbSeedWork.csproj", "WD.Botifier.Infra.Persistence.MongoDbSeedWork/WD.Botifier.Infra.Persistence.MongoDbSeedWork.csproj"]
 COPY ["Services/BotRegistry/WD.Botifier.BotRegistry.Domain/WD.Botifier.BotRegistry.Domain.csproj", "Services/BotRegistry/WD.Botifier.BotRegistry.Domain/WD.Botifier.BotRegistry.Domain.csproj"]
 COPY ["Services/BotRegistry/WD.Botifier.BotRegistry.Application/WD.Botifier.BotRegistry.Application.csproj", "Services/BotRegistry/WD.Botifier.BotRegistry.Application/WD.Botifier.BotRegistry.Application.csproj"]
 COPY ["Services/BotRegistry/WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb/WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.csproj", "Services/BotRegistry/WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb/WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.csproj"]

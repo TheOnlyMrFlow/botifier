@@ -19,7 +19,7 @@ public class BotRegistryClient : IBotRegistryClient
             Guid.NewGuid(),
             new[]
             {
-                new Webhook(new WebhookName("Toto"), new Uri("http://localhost:80"))
+                new Webhook(new WebhookId(Guid.NewGuid()), new WebhookName("Toto"), new Uri("http://localhost:80"))
             },
             new [] {new SubredditName("r/test")}
         );
@@ -29,7 +29,7 @@ public class BotRegistryClient : IBotRegistryClient
             Guid.NewGuid(),
             new[]
             {
-                new Webhook(new WebhookName("Toto"), new Uri("http://localhost:80"))
+                new Webhook(new WebhookId(Guid.NewGuid()), new WebhookName("Toto"), new Uri("http://localhost:80"))
             }
         );
 

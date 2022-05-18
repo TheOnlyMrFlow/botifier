@@ -5,6 +5,7 @@ namespace WD.Botifier.BotRegistry.Infrastructure.Api.RedditBots.Controllers.AddB
 
 public class AddBotUserNameMentionInCommentTriggerHttpRequestBody
 {
-    
+    [Required]
+    public string Name { get; set; }
 }
 

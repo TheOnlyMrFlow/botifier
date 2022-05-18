@@ -55,16 +55,16 @@ public class RedditBot : Entity, IAggregateRoot, IBot<RedditBotId>
     public void SetCredentials(RedditAppCredentials credentials) 
         => Credentials = credentials;
 
-    public BotUserNameMentionInCommentTrigger AddNewTrigger(BotUserNameMentionInCommentTriggerSettings triggerSettings)
+    public BotUserNameMentionInCommentTrigger AddNewTrigger(RedditTriggerName name, BotUserNameMentionInCommentTriggerSettings triggerSettings)
     {
-        var trigger = BotUserNameMentionInCommentTrigger.NewBotUserNameMentionInCommentTrigger(triggerSettings);
+        var trigger = BotUserNameMentionInCommentTrigger.NewBotUserNameMentionInCommentTrigger(name, triggerSettings);
         _triggers.AddTrigger(trigger);
         return trigger;
     }
 
-    public NewPostInSubredditTrigger AddNewTrigger(NewPostInSubredditTriggerSettings triggerSettings)
+    public NewPostInSubredditTrigger AddNewTrigger(RedditTriggerName name, NewPostInSubredditTriggerSettings triggerSettings)
     {
-        var trigger = NewPostInSubredditTrigger.NewNewPostInSubredditTrigger(triggerSettings);
+        var trigger = NewPostInSubredditTrigger.NewNewPostInSubredditTrigger(name, triggerSettings);
         _triggers.AddTrigger(trigger);
         return trigger;
     }

@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,8 +17,9 @@ using WD.Botifier.BotRegistry.Domain.RedditBots;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Events;
 using WD.Botifier.BotRegistry.Infrastructure.Api;
 using WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb;
-using WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots;
+using WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots;using WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Migrations;
 using WD.Botifier.Infra.IntegrationEventBus.RabbitMQ;
+using WD.Botifier.Infra.Persistence.MongoDbSeedWork;
 using WD.Botifier.SeedWork;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -92,5 +94,8 @@ app.Services.GetService<DomainEventBus>()!.RegisterHandler<RedditBotCreatedDomai
     using var scope = app.Services.CreateScope();
     scope.ServiceProvider.GetService<PublishIntegrationEventWhenBotIsCreatedDomainEventHandler>()!.HandleAsync(@event).GetAwaiter().GetResult();
 });
+
+var mongoDbSettings = app.Services.GetService<BotifierBotRegistryMongoDatabaseSettings>()!;
+MigrationManager.ApplyToLatest(mongoDbSettings.ConnectionString, mongoDbSettings.DatabaseName, typeof(RedditBotRepository).Assembly.FullName);
 
 app.Run();

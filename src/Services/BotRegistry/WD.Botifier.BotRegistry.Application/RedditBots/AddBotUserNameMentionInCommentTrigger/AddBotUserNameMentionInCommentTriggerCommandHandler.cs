@@ -19,7 +19,7 @@ public class AddBotUserNameMentionInCommentTriggerCommandHandler
         if (bot is null)
             return new AddBotUserNameMentionInCommentTriggerCommandBotNotFoundResult();
 
-        bot.AddNewTrigger(new BotUserNameMentionInCommentTriggerSettings());
+        bot.AddNewTrigger(command.TriggerName, new BotUserNameMentionInCommentTriggerSettings());
 
         await _redditBotRepository.UpdateAsync(bot);
         

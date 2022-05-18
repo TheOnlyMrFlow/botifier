@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WD.Botifier.BotRegistry.Application.RedditBots.AddBotUserNameMentionInCommentTrigger;
 using WD.Botifier.BotRegistry.Domain.RedditBots;
+using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers;
 
 namespace WD.Botifier.BotRegistry.Infrastructure.Api.RedditBots.Controllers.AddBotUserNameMentionInCommentTrigger;
 
@@ -25,7 +26,7 @@ public class AddBotUserNameMentionInCommentTriggerController : ControllerBase
     public async Task<IActionResult?> AddTriggerAsync(Guid botId, [FromBody] AddBotUserNameMentionInCommentTriggerHttpRequestBody requestBody)
     {
         var userId = this.GetAuthenticatedUserId();
-        var command = new AddBotUserNameMentionInCommentTriggerCommand(userId, new RedditBotId(botId));
+        var command = new AddBotUserNameMentionInCommentTriggerCommand(userId, new RedditBotId(botId), new RedditTriggerName(requestBody.Name));
 
         var result = await _addBotUserNameMentionInCommentTriggerCommandHandler.HandleAsync(command);
 

@@ -1,10 +1,11 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers;
 using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers.BotUserNameMentionInComment;
-using WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Document.Latest.Triggers.Webhooks;
+using WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Documents.Triggers.Webhooks;
 
-namespace WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Document.Latest.Triggers;
+namespace WD.Botifier.BotRegistry.Infrastructure.Persistence.MongoDb.RedditBots.Documents.Triggers;
 
+[BsonIgnoreExtraElements]
 [BsonDiscriminator(TriggerType)]
 public class BotUserNameMentionInCommentTriggerDocument : RedditBotTriggerDocumentBase<BotUserNameMentionInCommentTriggerSettingsDocument>
 {
@@ -16,7 +17,7 @@ public class BotUserNameMentionInCommentTriggerDocument : RedditBotTriggerDocume
     }
 
     public BotUserNameMentionInCommentTrigger ToTrigger()
-        => new (new RedditTriggerId(Id), Settings.ToSettings(), Webhooks.ToWebhooks());
+        => new (new RedditTriggerId(Id), new RedditTriggerName(Name), Settings.ToSettings(), Webhooks.ToWebhooks());
 
     public override string Type => TriggerType;
 }

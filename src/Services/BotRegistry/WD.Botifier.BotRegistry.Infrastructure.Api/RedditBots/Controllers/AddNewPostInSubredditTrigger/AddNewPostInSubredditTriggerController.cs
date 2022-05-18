@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WD.Botifier.BotRegistry.Application.RedditBots.AddNewPostInSubredditTrigger;
 using WD.Botifier.BotRegistry.Domain.RedditBots;
+using WD.Botifier.BotRegistry.Domain.RedditBots.Triggers;
 using WD.Botifier.BotRegistry.Infrastructure.Api.RedditBots.Controllers.AddBotUserNameMentionInCommentTrigger;
 using WD.Botifier.SharedKernel.Reddit;
 
@@ -28,7 +29,7 @@ public class AddNewPostInSubredditTriggerController : ControllerBase
     public async Task<IActionResult?> AddTriggerAsync(Guid botId, AddNewPostInSubredditTriggerHttpRequestBody requestBody)
     {
         var userId = this.GetAuthenticatedUserId();
-        var command = new AddNewPostInSubredditTriggerCommand(userId, new RedditBotId(botId), requestBody.SubredditNames.Select(sr => new SubredditName(sr)));
+        var command = new AddNewPostInSubredditTriggerCommand(userId, new RedditBotId(botId), new RedditTriggerName(requestBody.Name), requestBody.SubredditNames.Select(sr => new SubredditName(sr)));
 
         var result = await _addNewPostInSubredditTriggerCommandHandler.HandleAsync(command);
 

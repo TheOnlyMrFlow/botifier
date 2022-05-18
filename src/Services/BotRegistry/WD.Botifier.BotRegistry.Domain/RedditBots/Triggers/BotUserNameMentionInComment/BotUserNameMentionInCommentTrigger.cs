@@ -7,10 +7,10 @@ namespace WD.Botifier.BotRegistry.Domain.RedditBots.Triggers.BotUserNameMentionI
 
 public class BotUserNameMentionInCommentTrigger : RedditTriggerBase<BotUserNameMentionInCommentTriggerSettings>
 {
-    public static BotUserNameMentionInCommentTrigger NewBotUserNameMentionInCommentTrigger(BotUserNameMentionInCommentTriggerSettings settings)
-        => new(RedditTriggerId.NewRedditTriggerId(), settings, new List<Webhook>());
+    public static BotUserNameMentionInCommentTrigger NewBotUserNameMentionInCommentTrigger(RedditTriggerName name, BotUserNameMentionInCommentTriggerSettings settings)
+        => new(RedditTriggerId.NewRedditTriggerId(), name, settings, new List<Webhook>());
     
-    public BotUserNameMentionInCommentTrigger(RedditTriggerId id, BotUserNameMentionInCommentTriggerSettings settings, IEnumerable<Webhook> webhooks) : base(id, settings, webhooks)
+    public BotUserNameMentionInCommentTrigger(RedditTriggerId id, RedditTriggerName name, BotUserNameMentionInCommentTriggerSettings settings, IEnumerable<Webhook> webhooks) : base(id, name, settings, webhooks)
     {
     }
 }
