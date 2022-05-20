@@ -1,6 +1,4 @@
-﻿using WD.Botifier.RedditBotRunner.Domain.Triggers;
-using WD.Botifier.RedditBotRunner.Domain.Triggers.NewPostInSubredit;
-using WD.Botifier.RedditBotRunner.Domain.Triggers.UserNameMentionInComment;
+﻿using WD.Botifier.RedditBotRunner.Domain.Bots.Triggers.UserNameMentionInComment;
 
 namespace WD.Botifier.RedditBotRunner.Domain.Webhooks;
 

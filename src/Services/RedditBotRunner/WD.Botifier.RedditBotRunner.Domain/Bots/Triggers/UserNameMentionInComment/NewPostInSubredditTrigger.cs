@@ -1,7 +1,8 @@
-﻿using WD.Botifier.SharedKernel.Reddit.Comments;
+﻿using WD.Botifier.RedditBotRunner.Domain.Triggers;
+using WD.Botifier.SharedKernel.Reddit.Comments;
 using WD.Botifier.SharedKernel.Webhooks;
 
-namespace WD.Botifier.RedditBotRunner.Domain.Triggers.UserNameMentionInComment;
+namespace WD.Botifier.RedditBotRunner.Domain.Bots.Triggers.UserNameMentionInComment;
 
 public class UserNameMentionInCommentTrigger : TriggerBase
 {

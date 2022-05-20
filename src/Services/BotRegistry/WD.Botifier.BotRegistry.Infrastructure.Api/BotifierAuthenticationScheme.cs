@@ -31,8 +31,8 @@ public class BotifierAuthHandler : AuthenticationHandler<AuthenticationSchemeOpt
         if (accessToken is null)
             return AuthenticateResult.Fail("Missing Authorization Header");
 
-        using var restClient = new RestClient();
-        var validateTokenRequest = new RestRequest("http://authentication-api/auth/validateToken", Method.Post).AddBody(new {AccessToken = accessToken}); 
+        var restClient = new RestClient();
+        var validateTokenRequest = new RestRequest("http://authentication-api/auth/validateToken", Method.POST).AddBody(new {AccessToken = accessToken}); 
         var claimsResponse = await restClient.ExecuteAsync<Dictionary<string, string>>(validateTokenRequest);
         if (!claimsResponse.IsSuccessful) 
             return AuthenticateResult.Fail("Unauthorized"); 

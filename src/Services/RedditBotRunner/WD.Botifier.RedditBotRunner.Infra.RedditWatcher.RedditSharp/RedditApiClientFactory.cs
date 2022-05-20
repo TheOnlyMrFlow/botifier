@@ -1,9 +1,9 @@
-﻿using System;
-using WD.Botifier.RedditBotRunner.Application.Ports;
+﻿using WD.Botifier.RedditBotRunner.Application.Ports;
+using WD.Botifier.RedditBotRunner.Domain.Bots;
 using WD.Botifier.SharedKernel.Reddit;
 using WD.Botifier.SharedKernel.Reddit.AppCredentials;
 
-namespace WD.Botifier.RedditBotRunner.Infra.RedditApIClient;
+namespace WD.Botifier.RedditBotRunner.Infra.RedditWatcher.RedditSharp;
 
 public class RedditApiClientFactory : IAuthfulRedditApiFactory, IAuthlessRedditApiFactory
 {
@@ -15,10 +15,10 @@ public class RedditApiClientFactory : IAuthfulRedditApiFactory, IAuthlessRedditA
     }
 
     IAuthfulRedditApi IAuthfulRedditApiFactory.Create(RedditAppCredentials appCredentials)
-        => new RedditApiClient(appCredentials);
+        => new RedditApIClient.RedditApiClient(appCredentials);
 
     IAuthlessRedditApi IAuthlessRedditApiFactory.Create()
-        => new RedditApiClient(_authlessAppCredentials);
+        => new RedditApIClient.RedditApiClient(_authlessAppCredentials);
 }
 
 public class RedditApiClientFactoryConfiguration

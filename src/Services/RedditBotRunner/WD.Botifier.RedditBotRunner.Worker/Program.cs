@@ -6,7 +6,7 @@ using Microsoft.Extensions.Options;
 using WD.Botifier.RedditBotRunner.Application;
 using WD.Botifier.RedditBotRunner.Application.Ports;
 using WD.Botifier.RedditBotRunner.Infra.BotRegistryClient;
-using WD.Botifier.RedditBotRunner.Infra.RedditApIClient;
+using WD.Botifier.RedditBotRunner.Infra.RedditWatcher.RedditDotNet;
 
 CreateHostBuilder(args).Build().RunAsync().GetAwaiter().GetResult();
 
@@ -21,10 +21,14 @@ static IHostBuilder CreateHostBuilder(string[] args) =>
                 .Build())
         .ConfigureServices((context, services) =>
             services
-                .Configure<RedditApiClientFactoryConfiguration>(options => context.Configuration.GetSection("AppCredentials").Bind(options))
-                .AddSingleton(sp => sp.GetRequiredService<IOptions<RedditApiClientFactoryConfiguration>>().Value)
-                .AddSingleton<IAuthfulRedditApiFactory, RedditApiClientFactory>()
-                .AddSingleton<IAuthlessRedditApiFactory, RedditApiClientFactory>()
+                //.Configure<RedditApiClientFactoryConfiguration>(options => context.Configuration.GetSection("AppCredentials").Bind(options))
+                // .AddSingleton(sp => sp.GetRequiredService<IOptions<RedditApiClientFactoryConfiguration>>().Value)
+                // .AddSingleton<IAuthfulRedditApiFactory, RedditApiClientFactory>()
+                // .AddSingleton<IAuthlessRedditApiFactory, RedditApiClientFactory>()
+                .Configure<AuthlessRedditApiClientFactorySettings>(options => context.Configuration.GetSection("AuthlessRedditApiClientFactorySettings").Bind(options))
+                .AddSingleton(sp => sp.GetRequiredService<IOptions<AuthlessRedditApiClientFactorySettings>>().Value)
+                .AddSingleton<IAuthfulRedditApiFactory, AuthfulRedditApiClientFactory>()
+                .AddSingleton<IAuthlessRedditApiFactory, AuthlessRedditApiClientFactory>()
                 .AddSingleton<IBotRegistryClient, BotRegistryClient>()
                 .AddSingleton<WebhookCaller>()
                 .AddHostedService<BotOrchestrator>());

@@ -1,6 +1,6 @@
 using WD.Botifier.SharedKernel.Reddit.Comments;
 
-namespace WD.Botifier.RedditBotRunner.Domain.Triggers.UserNameMentionInComment;
+namespace WD.Botifier.RedditBotRunner.Domain.Bots.Triggers.UserNameMentionInComment;
 
 public class UserNameMentionInCommentTriggerMatch
 {

@@ -12,8 +12,8 @@ public class WebhookCaller
 {
     public async Task<WebhookResponse> CallWebhookAsync<T>(Webhook webhook, T payload) where T : IWebhookPayload
     {
-        using var restClient = new RestClient();
-        var request = new RestRequest(webhook.Url, Method.Post);
+        var restClient = new RestClient();
+        var request = new RestRequest(webhook.Url, Method.POST);
         request.AddHeader("cache-control", "no-cache");
         request.AddHeader("content-type", "application/json");
         request.AddBody(payload);

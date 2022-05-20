@@ -1,9 +1,9 @@
 ﻿using RestSharp;
 using WD.Botifier.RedditBotRunner.Application.Ports;
-using WD.Botifier.RedditBotRunner.Domain;
+using WD.Botifier.RedditBotRunner.Domain.Bots;
+using WD.Botifier.RedditBotRunner.Domain.Bots.Triggers.NewPostInSubredit;
+using WD.Botifier.RedditBotRunner.Domain.Bots.Triggers.UserNameMentionInComment;
 using WD.Botifier.RedditBotRunner.Domain.Triggers;
-using WD.Botifier.RedditBotRunner.Domain.Triggers.NewPostInSubredit;
-using WD.Botifier.RedditBotRunner.Domain.Triggers.UserNameMentionInComment;
 using WD.Botifier.SharedKernel.Reddit;
 using WD.Botifier.SharedKernel.Reddit.AppCredentials;
 using WD.Botifier.SharedKernel.Webhooks;
@@ -37,7 +37,7 @@ public class BotRegistryClient : IBotRegistryClient
         {
             new Bot(
                 Guid.NewGuid(),
-                new RedditAppCredentials(new RedditUserName("8bitfier"), new RedditPassword("fPrL^N%S3Lc02NC%"), new RedditAppClientId("UXyHK6OWWmkULQ"), new RedditAppClientSecret("WWXpXdd6LqaQ4de72ArpvLdoJEORLQ"), new RedditAppRedirectUri("https://google.com")),
+                new RedditRefreshToken("830878531732-cz4-E-8sO7XzObIL2e41jEmRNZMluA"),
                 Array.Empty<NewPostInSubredditTrigger>(),//new[] {newPostTrigger},
                 new[] {userNameMentionTrigger})
         };

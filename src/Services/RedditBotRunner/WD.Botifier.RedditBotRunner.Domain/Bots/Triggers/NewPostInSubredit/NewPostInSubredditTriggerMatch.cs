@@ -1,6 +1,6 @@
 using WD.Botifier.SharedKernel.Reddit.Posts;
 
-namespace WD.Botifier.RedditBotRunner.Domain.Triggers.NewPostInSubredit;
+namespace WD.Botifier.RedditBotRunner.Domain.Bots.Triggers.NewPostInSubredit;
 
 public class NewPostInSubredditTriggerMatch
 {

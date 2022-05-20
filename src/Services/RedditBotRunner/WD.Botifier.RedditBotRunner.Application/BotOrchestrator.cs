@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
 using WD.Botifier.RedditBotRunner.Application.Ports;
 using WD.Botifier.RedditBotRunner.Domain;
+using WD.Botifier.RedditBotRunner.Domain.Bots;
 using WD.Botifier.SharedKernel.Reddit.Comments;
 
 namespace WD.Botifier.RedditBotRunner.Application;

@@ -1,8 +1,9 @@
-﻿using WD.Botifier.SharedKernel.Reddit;
+﻿using WD.Botifier.RedditBotRunner.Domain.Triggers;
+using WD.Botifier.SharedKernel.Reddit;
 using WD.Botifier.SharedKernel.Reddit.Posts;
 using WD.Botifier.SharedKernel.Webhooks;
 
-namespace WD.Botifier.RedditBotRunner.Domain.Triggers.NewPostInSubredit;
+namespace WD.Botifier.RedditBotRunner.Domain.Bots.Triggers.NewPostInSubredit;
 
 public class NewPostInSubredditTrigger : TriggerBase
 {

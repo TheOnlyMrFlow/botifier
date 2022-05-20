@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using WD.Botifier.RedditBotRunner.Application.Ports;
-using WD.Botifier.RedditBotRunner.Domain;
-using WD.Botifier.RedditBotRunner.Domain.Triggers.NewPostInSubredit;
-using WD.Botifier.RedditBotRunner.Domain.Triggers.UserNameMentionInComment;
+using WD.Botifier.RedditBotRunner.Domain.Bots;
+using WD.Botifier.RedditBotRunner.Domain.Bots.Triggers.NewPostInSubredit;
+using WD.Botifier.RedditBotRunner.Domain.Bots.Triggers.UserNameMentionInComment;
 using WD.Botifier.RedditBotRunner.Domain.Webhooks;
 
 namespace WD.Botifier.RedditBotRunner.Application;
@@ -22,7 +22,7 @@ public class BotRunner : IDisposable
         _bot = bot;
         _webhookCaller = webhookCaller;
         _authlessRedditApi = authlessRedditApi;
-        _authfulRedditApi = authfulRedditApiFactory.Create(bot.Credentials);
+        _authfulRedditApi = authfulRedditApiFactory.Create(bot.RefreshToken);
     }
     
     public void Run()
